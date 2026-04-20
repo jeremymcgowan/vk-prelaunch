@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Coming Soon | V&K Partners</title>
+    <meta name="description" content="V&K Partners provides enterprise technology, managed services, global HR, and venture architecture for scaling founders. Based in Palm Beach County, FL.">
+    
+    <meta property="og:title" content="V&K Partners | Pre-Launch">
+    <meta property="og:description" content="Enterprise technology, managed services, and venture architecture for scaling founders. Secure your strategy.">
+    <meta property="og:image" content="logo-beta.png">
+    <meta property="og:url" content="https://vkpartners.app">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:ital,wght@0,500;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-pure-black: #000000;
+            --surface-dark: #0a0a0a;
+            --border-color: #1f1f1f;
+            --vk-gold: #d4af37;
+            --vk-gold-dim: #8b7325;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            /* Native smooth scrolling disabled in favor of custom JS engine below */
+            /* scroll-behavior: smooth; */ 
+        }
+
+        body {
+            background-color: var(--bg-pure-black);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 4%;
+            background-color: var(--bg-pure-black);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-text {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            letter-spacing: 3px;
+            color: var(--text-main);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--vk-gold);
+        }
+
+        .nav-button {
+            background-color: var(--vk-gold);
+            color: var(--bg-pure-black);
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-button:hover {
+            opacity: 0.8;
+        }
+
+        /* MAIN LAYOUT */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 1rem;
+        }
+
+        .hero-dual-logo {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 4rem;
+        }
+
+        /* Stealth Eyebrow */
+        .hero-eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            color: var(--vk-gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .hero-title .gold-italic {
+            color: var(--vk-gold);
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .hero-subtext {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 5rem;
+            font-weight: 300;
+        }
+
+        /* INFRASTRUCTURE 2x2 GRID (SEO BLOCKS) */
+        .infrastructure-container {
+            width: 100%;
+            max-width: 900px;
+            margin-bottom: 5rem;
+        }
+
+        .infrastructure-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .infrastructure-card {
+            background-color: var(--surface-dark);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .infrastructure-card:hover {
+            border-color: var(--vk-gold-dim);
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            color: var(--vk-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .card-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-list {
+            list-style: none;
+        }
+
+        .card-list li {
+            font-size: 0.7rem;
+            color: var(--text-main);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-list li::before {
+            content: "■";
+            color: var(--vk-gold);
+            font-size: 0.5rem;
+            margin-right: 10px;
+        }
+
+        /* INQUIRY SECTION (GRANT + FORM) */
+        .action-section {
+            width: 100%;
+            max-width: 650px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .equity-grant-container {
+            background-color: var(--bg-pure-black);
+            border: 1px solid var(--vk-gold-dim);
+            padding: 2rem;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .equity-grant-header {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            color: var(--vk-gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .equity-grant-body {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--text-main);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .equity-grant-disclaimer {
+            font-family: var(--font-body);
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .inquiry-container {
+            background-color: var(--surface-dark);
+            border: 1px solid var(--border-color);
+            padding: 3.5rem;
+            width: 100%;
+        }
+
+        .inquiry-container h2 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--text-main);
+            letter-spacing: 3px;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--vk-gold);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.8rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            background-color: var(--bg-pure-black);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 1.2rem;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--vk-gold);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background-color: var(--vk-gold);
+            color: var(--bg-pure-black);
+            border: none;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* FOOTER */
+        footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 1rem 3rem 1rem;
+            background-color: var(--bg-pure-black);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-brand-name {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            letter-spacing: 6px;
+            color: var(--text-main);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .footer-tagline {
+            color: var(--vk-gold);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 400;
+            margin-bottom: 3.5rem;
+            padding: 0.2rem 0;
+        }
+
+        .footer-copyright {
+            color: #555555;
+            font-family: var(--font-body);
+            font-size: 0.65rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* Responsive Grid Adjustments */
+        @media (max-width: 768px) {
+            .infrastructure-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-right {
+                display: none; /* Hide nav on mobile to enforce pure scrolling funnel */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <span class="brand-text">V&K PARTNERS</span>
+        </div>
+        
+        <div class="header-right">
+            <a href="#infrastructure" class="nav-link">The Infrastructure</a>
+            <a href="#inquiry" class="nav-link">Investors</a>
+            <a href="#inquiry" class="nav-button">Consultation</a>
+        </div>
+    </header>
+
+    <main>
+        <img src="logo-beta.png" alt="V&K Partners - Enterprise Infrastructure and Growth Engine" class="hero-dual-logo">
+
+        <div class="hero-eyebrow">[ CURRENTLY IN PRIVATE PRE-LAUNCH ]</div>
+
+        <h1 class="hero-title">
+            The Catalyst For<br>
+            <span class="gold-italic">Exponential Impact.</span>
+        </h1>
+        
+        <p class="hero-subtext">
+            Entity Formation. Global Operations. Enterprise Technology & Managed Services.<br>
+            One Unified Foundation for Scaling Enterprises and the Relentless Pursuit of&nbsp;Physical,&nbsp;Financial,&nbsp;and&nbsp;Professional&nbsp;Mastery.
+        </p>
+
+        <section id="infrastructure" class="infrastructure-container">
+            <div class="infrastructure-grid">
+                
+                <div class="infrastructure-card">
+                    <h3 class="card-title">Technology Governance</h3>
+                    <p class="card-desc">Strategic vCIO oversight ensuring digital sovereignty and high-resilience infrastructure.</p>
+                    <ul class="card-list">
+                        <li>Cloud Architecture</li>
+                        <li>Cybersecurity Mitigation</li>
+                        <li>Hardware Fulfillment</li>
+                        <li>vCIO Consulting</li>
+                    </ul>
+                </div>
+
+                <div class="infrastructure-card">
+                    <h3 class="card-title">Venture Architecture</h3>
+                    <p class="card-desc">Precision entity formation and lifecycle management for founding teams and investors.</p>
+                    <ul class="card-list">
+                        <li>Entity Formation</li>
+                        <li>Compliance & Agents</li>
+                        <li>Bookkeeping Matrices</li>
+                        <li>Regulatory Governance</li>
+                    </ul>
+                </div>
+
+                <div class="infrastructure-card">
+                    <h3 class="card-title">Global HR & Tax</h3>
+                    <p class="card-desc">Seamless cross-border orchestration for scaling global workforces without friction.</p>
+                    <ul class="card-list">
+                        <li>International Payroll</li>
+                        <li>Tax Filings</li>
+                        <li>Benefits Admin</li>
+                        <li>Contractor Lifecycle</li>
+                    </ul>
+                </div>
+
+                <div class="infrastructure-card">
+                    <h3 class="card-title">Cash Flow & Logic</h3>
+                    <p class="card-desc">Omnichannel payment orchestration that bridges the gap between revenue and equity.</p>
+                    <ul class="card-list">
+                        <li>Transaction Routing</li>
+                        <li>Capital Flow Logic</li>
+                        <li>Fraud Defense</li>
+                        <li>Equity Conversion</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="inquiry" class="action-section">
+            
+            <div class="equity-grant-container">
+                <div class="equity-grant-header">Founding 100 Equity Grant</div>
+                <div class="equity-grant-body">The first 100 enterprise partners are granted 1,000 shares of private equity in Vanderbilt & Knight Partners LLC.</div>
+                <div class="equity-grant-disclaimer">Subject to qualification and operating agreement terms.</div>
+            </div>
+
+            <div class="inquiry-container">
+                <h2>Pre-Launch Engagement Inquiry</h2>
+<form action="https://formsubmit.co/jp@vkpartners.co" method="POST" style="display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 0 auto; text-align: left;">
+
+    <input type="hidden" name="_captcha" value="true"> <input type="hidden" name="_subject" value="URGENT: V&K Pre-Launch Inquiry">
+    <input type="hidden" name="_template" value="box"> <label for="name" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Full Name *</label>
+    <input type="text" id="name" name="name" required style="padding: 12px; background: #0a0a0a; border: 1px solid #333; color: white; font-family: inherit;">
+
+    <label for="email" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Work Email *</label>
+    <input type="email" id="email" name="email" required style="padding: 12px; background: #0a0a0a; border: 1px solid #333; color: white; font-family: inherit;">
+
+    <label for="requirements" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Requirements *</label>
+    <textarea id="requirements" name="requirements" rows="4" placeholder="How can our infrastructure serve your venture?" required style="padding: 12px; background: #0a0a0a; border: 1px solid #333; color: white; font-family: inherit; resize: vertical;"></textarea>
+
+    <button type="submit" style="padding: 16px; background: #ffffff; color: #000000; border: none; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; margin-top: 10px; transition: background 0.3s ease;">
+        Secure Your Strategy
+    </button>
+</form>
+            </div>
+            
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-brand-name">VANDERBILT & KNIGHT PARTNERS LLC</div>
+        <div class="footer-tagline">PALM BEACH COUNTY, FL | AUTHORITY. PRECISION. RESILIENCE.</div>
+        <div class="footer-copyright">© 2026 VANDERBILT & KNIGHT PARTNERS LLC. ALL RIGHTS RESERVED.</div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (!targetElement) return;
+
+                // Adjust this offset based on the height of the sticky header + desired spacing
+                const headerOffset = 110; 
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                
+                // ADJUST SPEED HERE: 1000 = 1 second. 1200 = 1.2 seconds.
+                const duration = 1200; 
+                let start = null;
+
+                // Easing function for premium "glide" effect (easeInOutCubic)
+                function ease(t, b, c, d) {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t * t + b;
+                    t -= 2;
+                    return c / 2 * (t * t * t + 2) + b;
+                }
+
+                function animation(currentTime) {
+                    if (start === null) start = currentTime;
+                    const timeElapsed = currentTime - start;
+                    const run = ease(timeElapsed, startPosition, distance, duration);
+                    
+                    window.scrollTo(0, run);
+                    
+                    if (timeElapsed < duration) {
+                        requestAnimationFrame(animation);
+                    } else {
+                        // Ensure it snaps perfectly to the target at the end
+                        window.scrollTo(0, targetPosition); 
+                    }
+                }
+
+                requestAnimationFrame(animation);
+            });
+        });
+    </script>
+</body>
+</html>
