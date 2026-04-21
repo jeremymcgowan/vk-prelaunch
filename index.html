@@ -545,8 +545,8 @@
                 
                 if (!targetElement) return;
 
-                // Adjust this offset based on the height of the sticky header + desired spacing
-                const headerOffset = 110; 
+               // Dynamically calculate the header height for perfect mobile/desktop clearance
+        const headerOffset = document.querySelector('header').offsetHeight + 30;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
                 const startPosition = window.pageYOffset;
                 const distance = targetPosition - startPosition;
