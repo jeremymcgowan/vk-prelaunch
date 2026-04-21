@@ -392,12 +392,23 @@
         }
 
         /* Responsive Grid Adjustments */
-        @media (max-width: 768px) {
+      @media (max-width: 768px) {
             .infrastructure-grid {
                 grid-template-columns: 1fr;
             }
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 1rem 4%;
+            }
             .header-right {
-                display: none; /* Hide nav on mobile to enforce pure scrolling funnel */
+                display: flex;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav-link {
+                font-size: 0.65rem;
             }
         }
     </style>
