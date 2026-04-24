@@ -3,22 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Coming Soon | V&K Partners</title>
     <meta name="description" content="V&K Partners provides enterprise technology, managed services, global HR, and venture architecture for scaling founders. Based in Palm Beach County, FL.">
-    
     <meta property="og:title" content="V&K Partners | Pre-Launch">
     <meta property="og:description" content="Enterprise technology, managed services, and venture architecture for scaling founders. Secure your strategy.">
     <meta property="og:image" content="logo-beta.png">
     <meta property="og:url" content="https://vkpartners.app">
     <meta property="og:type" content="website">
-
     <link rel="icon" href="favicon.png" type="image/png">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:ital,wght@0,500;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
     <style>
         :root {
             --bg-pure-black: #000000;
@@ -36,11 +31,6 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-        }
-
-        html {
-            /* Native smooth scrolling disabled in favor of custom JS engine below */
-            /* scroll-behavior: smooth; */ 
         }
 
         body {
@@ -65,11 +55,6 @@
             position: sticky;
             top: 0;
             z-index: 100;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
         }
 
         .brand-text {
@@ -134,7 +119,6 @@
             margin-bottom: 4rem;
         }
 
-        /* Stealth Eyebrow */
         .hero-eyebrow {
             font-family: var(--font-body);
             font-size: 0.7rem;
@@ -161,6 +145,13 @@
             font-weight: 600;
         }
 
+        .services-gear {
+            display: block;
+            margin: 1.5rem auto 0;
+            width: 80px; /* Adjust size as needed */
+            height: auto;
+        }
+
         .hero-subtext {
             font-family: var(--font-body);
             font-size: 1.05rem;
@@ -171,7 +162,7 @@
             font-weight: 300;
         }
 
-        /* INFRASTRUCTURE 2x2 GRID (SEO BLOCKS) */
+        /* INFRASTRUCTURE GRID */
         .infrastructure-container {
             width: 100%;
             max-width: 900px;
@@ -231,7 +222,7 @@
             margin-right: 10px;
         }
 
-        /* INQUIRY SECTION (GRANT + FORM) */
+        /* INQUIRY SECTION */
         .action-section {
             width: 100%;
             max-width: 650px;
@@ -294,43 +285,6 @@
             text-transform: uppercase;
         }
 
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        label {
-            display: block;
-            font-size: 0.7rem;
-            color: var(--vk-gold);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 0.8rem;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            width: 100%;
-            background-color: var(--bg-pure-black);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 1.2rem;
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            transition: border-color 0.3s ease;
-        }
-
-        input:focus,
-        textarea:focus {
-            outline: none;
-            border-color: var(--vk-gold);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
         .submit-btn {
             width: 100%;
             padding: 1.2rem;
@@ -380,7 +334,6 @@
             text-transform: uppercase;
             font-weight: 400;
             margin-bottom: 3.5rem;
-            padding: 0.2rem 0;
         }
 
         .footer-copyright {
@@ -390,32 +343,12 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
- /* Responsive Grid Adjustments */
+
         @media (max-width: 768px) {
-            .infrastructure-grid {
-                grid-template-columns: 1fr;
-            }
-            header {
-                flex-direction: column;
-                gap: 15px;
-                padding: 1rem 4%;
-            }
-            .header-right {
-                display: flex;
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .nav-link {
-                font-size: 0.65rem;
-            }
-            .hero-eyebrow {
-                font-size: 0.55rem;
-                letter-spacing: 2px;
-                text-align: center;
-            }
-        }
-            }
+            .infrastructure-grid { grid-template-columns: 1fr; }
+            header { flex-direction: column; gap: 15px; }
+            .header-right { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .hero-title { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -425,7 +358,6 @@
         <div class="header-left">
             <span class="brand-text">V&K PARTNERS</span>
         </div>
-        
         <div class="header-right">
             <a href="#infrastructure" class="nav-link">The Infrastructure</a>
             <a href="#inquiry" class="nav-link">Investors</a>
@@ -435,22 +367,22 @@
 
     <main>
         <img src="logo-beta.png" alt="V&K Partners - Enterprise Infrastructure and Growth Engine" class="hero-dual-logo">
-
+        
         <div class="hero-eyebrow">[ CURRENTLY IN PRIVATE PRE-LAUNCH ]</div>
 
         <h1 class="hero-title">
             The Catalyst For<br>
             <span class="gold-italic">Exponential Impact.</span>
+            <img src="services_gear.png" alt="Services Gear" class="services-gear">
         </h1>
-        
-       <p class="hero-subtext">
-    <bold>ENTITY FORMATION. HUMAN RESOURCES. GLOBAL OPERATIONS. FINANCE, INVESTING, PAYMENTS. ENTERPRISE IT MANAGED SERVICES.</bold><br><br>
-    One Unified Foundation for Scaling Enterprises and the Relentless Pursuit of Physical, Financial, and Professional Mastery.
-</p>
+
+        <p class="hero-subtext">
+            <strong>ENTITY FORMATION. HUMAN RESOURCES. GLOBAL OPERATIONS. FINANCE, INVESTING, PAYMENTS. ENTERPRISE IT MANAGED SERVICES.</strong><br><br>
+            One Unified Foundation for Scaling Enterprises and the Relentless Pursuit of Physical, Financial, and Professional Mastery.
+        </p>
 
         <section id="infrastructure" class="infrastructure-container">
             <div class="infrastructure-grid">
-                
                 <div class="infrastructure-card">
                     <h3 class="card-title">Technology Governance</h3>
                     <p class="card-desc">Strategic vCIO oversight ensuring digital sovereignty and high-resilience infrastructure.</p>
@@ -494,12 +426,10 @@
                         <li>Equity Conversion</li>
                     </ul>
                 </div>
-
             </div>
         </section>
 
         <section id="inquiry" class="action-section">
-            
             <div class="equity-grant-container">
                 <div class="equity-grant-header">Founding 100 Equity Grant</div>
                 <div class="equity-grant-body">The first 100 enterprise partners are granted 1,000 shares of private equity in Vanderbilt & Knight Partners LLC.</div>
@@ -508,24 +438,23 @@
 
             <div class="inquiry-container" id="consultation-form">
                 <h2>Pre-Launch Engagement Inquiry</h2>
-<form action="https://formsubmit.co/jp@vkpartners.co" method="POST" style="display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 0 auto; text-align: left;">
+                <form action="https://formsubmit.co/jp@vkpartners.co" method="POST" style="display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 0 auto; text-align: left;">
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="hidden" name="_subject" value="URGENT: V&K Pre-Launch Inquiry">
+                    <input type="hidden" name="_template" value="box">
 
-    <input type="hidden" name="_captcha" value="true"> <input type="hidden" name="_subject" value="URGENT: V&K Pre-Launch Inquiry">
-    <input type="hidden" name="_template" value="box"> <label for="name" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Full Name *</label>
-    <input type="text" id="name" name="name" required style="padding: 12px; background: #0a0a0a; border: 1px solid #333; color: white; font-family: inherit;">
+                    <label for="name" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Full Name *</label>
+                    <input type="text" id="name" name="name" required style="padding: 12px; background: #0a0a0a; border: 1px solid #333; color: white; font-family: inherit;">
 
-    <label for="email" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Work Email *</label>
-    <input type="email" id="email" name="email" required style="padding: 12px; background: #0a0a0a; border: 1px solid #333; color: white; font-family: inherit;">
+                    <label for="email" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Work Email *</label>
+                    <input type="email" id="email" name="email" required style="padding: 12px; background: #0a0a0a; border: 1px solid #333; color: white; font-family: inherit;">
 
-    <label for="requirements" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Requirements *</label>
-    <textarea id="requirements" name="requirements" rows="4" placeholder="How can our infrastructure serve your venture?" required style="padding: 12px; background: #0a0a0a; border: 1px solid #333; color: white; font-family: inherit; resize: vertical;"></textarea>
+                    <label for="requirements" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Requirements *</label>
+                    <textarea id="requirements" name="requirements" rows="4" placeholder="How can our infrastructure serve your venture?" required style="padding: 12px; background: #0a0a0a; border: 1px solid #333; color: white; font-family: inherit; resize: vertical;"></textarea>
 
-    <button type="submit" class="submit-btn">
-    Secure Your Strategy
-</button>
-</form>
+                    <button type="submit" class="submit-btn">Secure Your Strategy</button>
+                </form>
             </div>
-            
         </section>
     </main>
 
@@ -539,23 +468,17 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                
                 if (!targetElement) return;
 
-               // Dynamically calculate the header height for perfect mobile/desktop clearance
-        const headerOffset = document.querySelector('header').offsetHeight + 30;
+                const headerOffset = document.querySelector('header').offsetHeight + 30;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
                 const startPosition = window.pageYOffset;
                 const distance = targetPosition - startPosition;
-                
-                // ADJUST SPEED HERE: 1000 = 1 second. 1200 = 1.2 seconds.
-                const duration = 1200; 
+                const duration = 1200;
                 let start = null;
 
-                // Easing function for premium "glide" effect (easeInOutCubic)
                 function ease(t, b, c, d) {
                     t /= d / 2;
                     if (t < 1) return c / 2 * t * t * t + b;
@@ -567,17 +490,13 @@
                     if (start === null) start = currentTime;
                     const timeElapsed = currentTime - start;
                     const run = ease(timeElapsed, startPosition, distance, duration);
-                    
                     window.scrollTo(0, run);
-                    
                     if (timeElapsed < duration) {
                         requestAnimationFrame(animation);
                     } else {
-                        // Ensure it snaps perfectly to the target at the end
-                        window.scrollTo(0, targetPosition); 
+                        window.scrollTo(0, targetPosition);
                     }
                 }
-
                 requestAnimationFrame(animation);
             });
         });
