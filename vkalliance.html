@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VK Alliance | The Founding 100 Enterprise Partnership | V&K Partners</title>
+    
+    <meta name="description" content="A unified corporate infrastructure partnership. Automate your entity, HR, IT, and payments under one managed layer, backed by a Founding 100 private equity grant.">
+    
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:ital,wght@0,500;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* INHERITED MASTER TEMPLATE CSS */
+        :root {
+            --bg-pure-black: #000000;
+            --surface-dark: #0a0a0a;
+            --border-color: #1f1f1f;
+            --vk-gold: #d4af37;
+            --vk-gold-dim: #8b7325;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; }
+
+        body {
+            background-color: var(--bg-pure-black);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* TEXT SELECTION OVERRIDE FIX */
+        .infrastructure-card, .infrastructure-card * {
+            user-select: text !important;
+            -webkit-user-select: text !important;
+        }
+
+        /* NAVIGATION BAR FRAMEWORK */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.2rem 4%; background-color: var(--bg-pure-black);
+            border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100;
+        }
+        .header-left { display: flex; align-items: center; }
+        .brand-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo-icon { height: 58px; width: auto; object-fit: contain; filter: brightness(1.2); }
+        .brand-text { font-family: var(--font-heading); font-size: 1.3rem; letter-spacing: 3px; color: var(--text-main); font-weight: 600; text-transform: uppercase; }
+        .header-right { display: flex; align-items: center; gap: 22px; }
+        
+        .nav-link {
+            display: inline-block; text-align: center; font-family: var(--font-body);
+            font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;
+            color: var(--vk-gold); text-decoration: none; transition: color 0.3s ease, opacity 0.3s ease; line-height: 1.3;
+        }
+        .nav-link:hover { color: var(--text-main); opacity: 0.9; }
+        
+        .nav-button {
+            background-color: var(--vk-gold); color: var(--bg-pure-black); font-family: var(--font-body);
+            font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
+            padding: 0.7rem 1.4rem; font-weight: 600; cursor: pointer; transition: opacity 0.3s ease; text-align: center;
+        }
+        .nav-button:hover { opacity: 0.8; }
+
+        /* CANVAS AREA FRAMEWORK */
+        main {
+            flex: 1; display: flex; flex-direction: column; align-items: center;
+            padding: 6rem 1rem 4rem; position: relative;
+        }
+        main::before {
+            content: ''; position: absolute; top: 10%; left: 50%; width: 800px; height: 400px;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
+            transform: translateX(-50%); z-index: 0; pointer-events: none;
+        }
+
+        .hero-container { max-width: 900px; margin: 0 auto 4rem auto; text-align: center; width: 100%; position: relative; z-index: 1; }
+        .hero-eyebrow { font-family: var(--font-body); font-size: 0.7rem; color: var(--vk-gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 600; }
+        .hero-title { font-family: var(--font-heading); font-size: 2.5rem; letter-spacing: 2px; margin-bottom: 2rem; text-transform: uppercase; font-weight: 500; line-height: 1.2; }
+        .hero-title .gold-italic { color: var(--vk-gold); font-style: italic; font-weight: 600; }
+        .hero-desc { font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; max-width: 750px; margin: 0 auto; }
+
+        /* 3x3 SQUARED SERVICE DETAIL STACK */
+        .infrastructure-container { width: 100%; max-width: 1200px; margin-bottom: 6rem; z-index: 1; position: relative; }
+        .infrastructure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        
+        .infrastructure-card {
+            background-color: var(--surface-dark); border: 1px solid var(--border-color);
+            padding: 3rem 2.5rem; text-decoration: none; color: inherit; display: flex; flex-direction: column;
+            border-top: 3px solid transparent; transition: border-color 0.3s ease;
+            min-height: 340px; justify-content: flex-start;
+            /* Stops the scroll perfectly below the sticky header */
+            scroll-margin-top: 130px; 
+        }
+        .infrastructure-card:hover { border-color: var(--border-color); border-top-color: var(--vk-gold); background-color: #050505; }
+        .card-title { font-family: var(--font-heading); font-size: 1.1rem; color: var(--vk-gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.2rem; line-height: 1.4; }
+        .card-desc { font-size: 0.95rem; color: var(--text-main); line-height: 1.7; }
+
+        /* CALL-TO-ACTION REVEAL FRAMEWORK BUILD */
+        .action-section { width: 100%; max-width: 900px; display: flex; flex-direction: column; align-items: center; z-index: 1; position: relative; }
+        .equity-grant-container { background-color: var(--bg-pure-black); border: 1px solid var(--vk-gold-dim); padding: 3rem 2.5rem; width: 100%; text-align: center; margin-bottom: 3rem; }
+        .equity-grant-header { font-family: var(--font-body); font-size: 0.75rem; color: var(--vk-gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 600; }
+        .equity-grant-body { font-family: var(--font-body); font-size: 0.9rem; color: var(--text-main); letter-spacing: 1.5px; text-transform: uppercase; line-height: 1.7; }
+        
+        .inquiry-container { background-color: var(--surface-dark); border: 1px solid var(--border-color); padding: 3rem 1.5rem; width: 100%; display: none; }
+        .inquiry-container h2 { font-family: var(--font-heading); font-size: 1.3rem; color: var(--text-main); letter-spacing: 4px; text-align: center; margin-bottom: 2rem; text-transform: uppercase; }
+
+        /* ALIGNED STRUCTURE FOOTER LAYOUT (NEW 3x2 GRID) */
+        footer {
+            background-color: var(--bg-pure-black); border-top: 1px solid var(--border-color);
+            padding: 6rem 4% 4rem 4%; display: flex; flex-direction: column; align-items: center;
+        }
+        .footer-grid { 
+            width: 100%; 
+            max-width: 1200px; 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 4rem 3rem; 
+            margin-bottom: 5rem; 
+            text-align: left; 
+        }
+        .footer-column h4 { font-family: var(--font-heading); font-size: 0.8rem; color: var(--vk-gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 600; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 1rem; }
+        .footer-column ul li a { color: var(--text-muted); text-decoration: none; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s ease; }
+        .footer-column ul li a:hover { color: var(--text-main); }
+        .footer-bottom { width: 100%; border-top: 1px solid #111111; padding-top: 3rem; text-align: center; }
+        .footer-brand-name { font-family: var(--font-heading); font-size: 1.4rem; letter-spacing: 8px; color: var(--text-main); text-transform: uppercase; margin-bottom: 1rem; font-weight: 500; }
+        .footer-tagline { color: var(--vk-gold); font-family: var(--font-body); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2rem; }
+        .footer-copyright { color: #333; font-family: var(--font-body); font-size: 0.6rem; letter-spacing: 1.8px; text-transform: uppercase; }
+
+        /* VIEWPORT RESPONSIVENESS ADAPTATION ENGINE */
+        @media (max-width: 1024px) {
+            header { flex-direction: column; gap: 1.2rem; padding: 1.5rem 4%; }
+            .header-right { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .nav-link { font-size: 0.75rem; }
+            .infrastructure-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .infrastructure-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .header-right { gap: 12px; }
+            .nav-link { font-size: 0.7rem; }
+            .nav-button { padding: 0.6rem 1.2rem; font-size: 0.7rem; }
+            h1.hero-title { font-size: 2rem; margin-bottom: 2rem; }
+            .infrastructure-card { padding: 2.5rem 2rem; min-height: auto; }
+            .equity-grant-container { padding: 2rem 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            .footer-grid { text-align: center; }
+            .footer-column { align-items: center; }
+            .header-right { gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="brand-link">
+                <img src="knight_only.png" alt="V&K Icon" class="nav-logo-icon">
+                <span class="brand-text">V&K Partners</span>
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="vklaunch.html" class="nav-link">Business<br>Formation</a>
+            <a href="vkflow.html" class="nav-link">Embedded<br>Payments</a>
+            <a href="vkshield.html" class="nav-link">IT Managed<br>Services</a>
+            <a href="vkpeople.html" class="nav-link">Workforce<br>& Payroll</a>
+            <a href="vkcortex.html" class="nav-link">Advanced AI<br>Engineering</a>
+            <a href="vkalliance.html" class="nav-link" style="color: var(--text-main);">VK<br>Alliance</a>
+            <a href="#consultation-form" class="nav-button" id="nav-consult-btn">Consultation</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero-container">
+            <div class="hero-eyebrow">ECOSYSTEM MODULE 06 // VK ALLIANCE</div>
+            <h1 class="hero-title">
+                THE FOUNDING 100<br>
+                <span class="gold-italic">ENTERPRISE PARTNERSHIP</span>
+            </h1>
+            <p class="hero-desc">Consolidate your operations into a single, cohesive architecture. We deploy a unified infrastructure that seamlessly merges your corporate formation, global payroll, IT security, and embedded payments under one highly aligned managed layer.</p>
+        </div>
+
+        <section class="infrastructure-container">
+            <div class="infrastructure-grid">
+                
+                <div id="unified-orchestration" class="infrastructure-card">
+                    <h3 class="card-title">Unified Enterprise Orchestration</h3>
+                    <p class="card-desc">Stop paying for fractured software stacks. We map your entire operational backend together. By seamlessly integrating your HR, IT, and financial systems, we grant your enterprise absolute operational sovereignty and clarity.</p>
+                </div>
+
+                <div id="zero-touch-scaling" class="infrastructure-card">
+                    <h3 class="card-title">Frictionless Global Scaling</h3>
+                    <p class="card-desc">Expand your operations without the bottlenecks. As your team grows, our ecosystem automatically handles the heavy lifting—from provisioning corporate identities to deploying secured hardware—so you can focus purely on leadership.</p>
+                </div>
+
+                <div id="institutional-security" class="infrastructure-card">
+                    <h3 class="card-title">The Operational Moat</h3>
+                    <p class="card-desc">Build an impenetrable foundation. By unifying your IT and security layers, we enforce strict zero-trust policies across your entire network, proactively locking down your proprietary data and creating a distinct competitive advantage.</p>
+                </div>
+
+                <div id="equity-allocations" class="infrastructure-card">
+                    <h3 class="card-title">The Founding 100 Equity Grant</h3>
+                    <p class="card-desc">Transform a standard vendor relationship into a vested partnership. The first 100 enterprise clients to successfully deploy the V&K infrastructure stack receive 1,000 vested shares of private equity in our firm.</p>
+                </div>
+
+                <div id="strategic-alignment" class="infrastructure-card">
+                    <h3 class="card-title">Vested Strategic Alignment</h3>
+                    <p class="card-desc">We succeed only when you scale. By integrating into our ecosystem, you gain an architecture partner fully invested in deploying our unified technology, legal, and financial leverage to actively guarantee your long-term success.</p>
+                </div>
+
+                <div id="executive-advisory" class="infrastructure-card">
+                    <h3 class="card-title">Dedicated Executive Advisory</h3>
+                    <p class="card-desc">Gain direct access to our senior architects. We provide continuous strategic reviews and structural optimization to ensure your infrastructure perfectly supports your upcoming capital raises, M&A activity, or global expansion.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="action-section">
+            
+            <div class="equity-grant-container">
+                <div class="equity-grant-header">Founding 100 Equity Grant</div>
+                <div class="equity-grant-body">The first 100 enterprise partners to deploy the V&K infrastructure stack are granted 1,000 shares of private equity in Vanderbilt & Knight Partners LLC.</div>
+                <div style="margin-top: 1.5rem; font-size: 0.75rem; color: #666; text-transform: uppercase; letter-spacing: 1px;">Subject to qualification, migration requirements, and operating agreement terms.</div>
+            </div>
+
+            <div class="inquiry-container" id="consultation-form">
+                <h2>Enterprise Architecture Briefing</h2>
+                <iframe src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0UdxUE9sERpPy5o66_QHnWs1nIB9DpiDSL1KXh5zcYBAb4dnk_1aPaAZoNEunQkmmdOmn5NJiQ?gv=true" style="border: 0; width: 100%; height: 850px;" frameborder="0"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            
+            <div class="footer-column">
+                <h4>Business Formation</h4>
+                <ul>
+                    <li><a href="vklaunch.html#incorporation">US & Offshore Entity Incorporation</a></li>
+                    <li><a href="vklaunch.html#tax-registration">IRS EIN & State Tax Registration</a></li>
+                    <li><a href="vklaunch.html#agreements">Corporate Operating Agreements & Bylaws</a></li>
+                    <li><a href="vklaunch.html#holding-companies">Holding Companies & Asset Protection Shields</a></li>
+                    <li><a href="vklaunch.html#registered-agent">Turnkey Registered Agent Services</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Embedded Payments</h4>
+                <ul>
+                    <li><a href="vkflow.html#processing">Credit, Debit, ACH & Digital Wallet Processing</a></li>
+                    <li><a href="vkflow.html#merchant-accounts">Merchant Accounts & Secure Gateways</a></li>
+                    <li><a href="vkflow.html#custom-checkout">Custom Checkout & Payment Links</a></li>
+                    <li><a href="vkflow.html#fraud-shield">Fraud Shield & Secure Data Vaulting</a></li>
+                    <li><a href="vkflow.html#recurring-billing">B2B Invoicing & Recurring Subscriptions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>IT Managed Services</h4>
+                <ul>
+                    <li><a href="vkshield.html#helpdesk">24/7 Full-Service MSP IT Help Desk Support</a></li>
+                    <li><a href="vkshield.html#device-provisioning">Zero-Touch Employee Device Provisioning</a></li>
+                    <li><a href="vkshield.html#cloud-management">Cloud Architecture & Migrations</a></li>
+                    <li><a href="vkshield.html#cyber-security">Security & Compliance (FINRA, HIPAA, NIST, PCI)</a></li>
+                    <li><a href="vkshield.html#backup-recovery">Automated Disaster Recovery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Workforce & Payroll</h4>
+                <ul>
+                    <li><a href="vkpeople.html#global-hiring">Global Hiring & Entity Compliance</a></li>
+                    <li><a href="vkpeople.html#global-payroll">Multi-Currency Payroll Automation</a></li>
+                    <li><a href="vkpeople.html#health-benefits">Health Insurance & Benefits Management</a></li>
+                    <li><a href="vkpeople.html#contractor-compliance">Contractor Compliance Guard</a></li>
+                    <li><a href="vkpeople.html#tax-filing">Tax Filing & Reporting Automation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Advanced AI & Cloud Engineering</h4>
+                <ul>
+                    <li><a href="vkcortex.html#data-privacy">Private Enterprise Cloud Infrastructure (IaaS)</a></li>
+                    <li><a href="vkcortex.html#internal-ai">Proprietary Knowledge Engines</a></li>
+                    <li><a href="vkcortex.html#workflow-automation">Automated Operational Workflows</a></li>
+                    <li><a href="vkcortex.html#client-support">Autonomous Client Support Agents</a></li>
+                    <li><a href="vkcortex.html#document-processing">Smart Document & Data Extraction</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>VK Alliance (Private Syndicate)</h4>
+                <ul>
+                    <li><a href="vkalliance.html#deal-flow">Vetted Deal Flow & Enterprise Co-Investments</a></li>
+                    <li><a href="vkalliance.html#operator-network">Private Invite-Only Executive Network</a></li>
+                    <li><a href="vkalliance.html#treasury">Corporate Wealth & Treasury Frameworks</a></li>
+                    <li><a href="vkalliance.html#equity-allocations">Founding 100 Private Equity Allocations</a></li>
+                    <li><a href="vkalliance.html#joint-ventures">Strategic Joint Ventures</a></li>
+                </ul>
+            </div>
+
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-brand-name">V&K Partners</div>
+            <div class="footer-tagline">HEADQUARTERED IN TAMPA, FL | DEPLOYED GLOBALLY | AUTHORITY. PRECISION. RESILIENCE.</div>
+            <div class="footer-copyright">© 2026 VANDERBILT & KNIGHT PARTNERS LLC. ALL RIGHTS RESERVED.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll and reveal for the consultation button
+        const consultBtn = document.getElementById('nav-consult-btn');
+        if (consultBtn) {
+            consultBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector('#consultation-form');
+                
+                // REVEAL THE FORM FIRST
+                target.style.display = 'block';
+
+                // THEN SCROLL TO IT
+                const offset = 100;
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = target.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            });
+        }
+    </script>
+</body>
+</html>
