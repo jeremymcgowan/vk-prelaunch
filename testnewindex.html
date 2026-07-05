@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:ital,wght@0,500;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
         /* INHERITED MASTER TEMPLATE CSS */
         :root {
@@ -37,6 +39,7 @@
             flex-direction: column;
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         .infrastructure-card, .infrastructure-card * {
@@ -98,41 +101,21 @@
         .infrastructure-container { width: 100%; max-width: 1200px; margin-bottom: 6rem; z-index: 1; position: relative; }
         .infrastructure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
         
-        /* -------------------------------------------
-           VK CORE ANIMATION ENGINE (CSS for JS Trigger)
-        ------------------------------------------- */
         .infrastructure-card {
             background-color: var(--surface-dark); border: 1px solid var(--border-color);
             padding: 3rem 2.5rem; text-decoration: none; color: inherit; display: flex; flex-direction: column;
-            border-top: 3px solid transparent; transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            border-top: 3px solid transparent; transition: all 0.4s ease;
             min-height: 340px; justify-content: flex-start;
             scroll-margin-top: 130px; 
             cursor: pointer;
-            
-            /* Initial Hidden State */
-            opacity: 0;
-            transform: translateY(40px) scale(0.98);
-            box-shadow: 0 0 0 rgba(212, 175, 55, 0);
         }
 
-        .infrastructure-card.power-up {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        .infrastructure-card:nth-child(1) { transition-delay: 0.1s; }
-        .infrastructure-card:nth-child(2) { transition-delay: 0.2s; }
-        .infrastructure-card:nth-child(3) { transition-delay: 0.3s; }
-        .infrastructure-card:nth-child(4) { transition-delay: 0.4s; }
-        .infrastructure-card:nth-child(5) { transition-delay: 0.5s; }
-        .infrastructure-card:nth-child(6) { transition-delay: 0.6s; }
-
-        .infrastructure-card.power-up:hover {
-            transform: translateY(-5px);
+        /* Hover Effect for AOS Cards */
+        .infrastructure-card:hover {
+            transform: translateY(-5px) !important;
             border-top-color: var(--vk-gold);
             box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(212, 175, 55, 0.15);
             background-color: #050505;
-            transition-delay: 0s; 
         }
 
         .card-title { font-family: var(--font-heading); font-size: 1.1rem; color: var(--vk-gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.2rem; line-height: 1.4; }
@@ -147,7 +130,7 @@
         .inquiry-container { background-color: var(--surface-dark); border: 1px solid var(--border-color); padding: 3rem 1.5rem; width: 100%; display: none; }
         .inquiry-container h2 { font-family: var(--font-heading); font-size: 1.3rem; color: var(--text-main); letter-spacing: 4px; text-align: center; margin-bottom: 2rem; text-transform: uppercase; }
 
-        /* ALIGNED STRUCTURE FOOTER LAYOUT (NEW 3x2 GRID) */
+        /* ALIGNED STRUCTURE FOOTER LAYOUT */
         footer {
             background-color: var(--bg-pure-black); border-top: 1px solid var(--border-color);
             padding: 6rem 4% 4rem 4%; display: flex; flex-direction: column; align-items: center;
@@ -163,24 +146,18 @@
         .footer-tagline { color: var(--vk-gold); font-family: var(--font-body); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2rem; }
         .footer-copyright { color: #333; font-family: var(--font-body); font-size: 0.6rem; letter-spacing: 1.8px; text-transform: uppercase; }
 
-        /* VIEWPORT RESPONSIVENESS ADAPTATION ENGINE */
+        /* VIEWPORT RESPONSIVENESS */
         @media (max-width: 1024px) {
             header { flex-direction: column; gap: 1.5rem; padding: 1.5rem 4%; }
             .header-right { flex-wrap: wrap; justify-content: center; gap: 20px; }
-            .nav-link { font-size: 0.75rem; }
             .infrastructure-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
             .infrastructure-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .header-right { gap: 15px; }
-            .nav-link { font-size: 0.7rem; }
-            .nav-sub { font-size: 0.6rem; }
-            .nav-button { padding: 0.6rem 1.2rem; font-size: 0.7rem; margin-left: 0; }
             h1.hero-title { font-size: 2rem; margin-bottom: 2rem; }
             .infrastructure-card { padding: 2.5rem 2rem; min-height: auto; }
-            .equity-grant-container { padding: 2rem 1.5rem; }
         }
         @media (max-width: 480px) {
             .footer-grid { text-align: center; }
@@ -207,7 +184,7 @@
     </header>
 
     <main>
-        <div class="hero-container">
+        <div class="hero-container" data-aos="fade-down" data-aos-duration="1000">
             <div class="hero-eyebrow">CURRENTLY IN PRIVATE PRE-LAUNCH</div>
             <h1 class="hero-title">
                 THE CATALYST FOR<br>
@@ -219,32 +196,32 @@
         <section class="infrastructure-container">
             <div class="infrastructure-grid">
                 
-                <a href="vklaunch.html" class="infrastructure-card">
+                <a href="vklaunch.html" class="infrastructure-card" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="card-title">VK Launch // Formation</h3>
                     <p class="card-desc">Enterprise-grade corporate architecture. We engineer the legal and structural foundation required to scale operations, raise venture capital, and permanently protect your assets.</p>
                 </a>
 
-                <a href="vkflow.html" class="infrastructure-card">
+                <a href="vkflow.html" class="infrastructure-card" data-aos="fade-up" data-aos-delay="200">
                     <h3 class="card-title">VK Flow // Payments</h3>
                     <p class="card-desc">Scalable embedded payment architecture. We engineer reliable payment processing, custom checkouts, and B2B invoicing so you can process global revenue with absolute precision.</p>
                 </a>
 
-                <a href="vkshield.html" class="infrastructure-card">
+                <a href="vkshield.html" class="infrastructure-card" data-aos="fade-up" data-aos-delay="300">
                     <h3 class="card-title">VK Shield // Managed IT</h3>
                     <p class="card-desc">Enterprise-grade managed IT and cyber security. We act as your dedicated IT division—optimizing global device provisioning, cloud architecture, and proactive network security.</p>
                 </a>
 
-                <a href="vkpeople.html" class="infrastructure-card">
+                <a href="vkpeople.html" class="infrastructure-card" data-aos="fade-up" data-aos-delay="400">
                     <h3 class="card-title">VK People // Workforce</h3>
                     <p class="card-desc">Enterprise workforce and global payroll. Architect a borderless, high-performance team with unified global hiring, multi-currency payroll, and seamless structural compliance.</p>
                 </a>
 
-                <a href="vkcortex.html" class="infrastructure-card">
+                <a href="vkcortex.html" class="infrastructure-card" data-aos="fade-up" data-aos-delay="500">
                     <h3 class="card-title">VK Cortex // AI Engineering</h3>
                     <p class="card-desc">Advanced AI engineering and cloud infrastructure. We deploy proprietary artificial intelligence models on your private data to empower your workforce and exponentially accelerate operational output.</p>
                 </a>
 
-                <a href="vkalliance.html" class="infrastructure-card">
+                <a href="vkalliance.html" class="infrastructure-card" data-aos="fade-up" data-aos-delay="600">
                     <h3 class="card-title">VK Alliance // Partnership</h3>
                     <p class="card-desc">The Founding 100 Enterprise Partnership. A private ecosystem connecting founders to dedicated executive advisory, capital scaling frameworks, and highly vetted strategic joint ventures.</p>
                 </a>
@@ -252,7 +229,7 @@
             </div>
         </section>
 
-        <section class="action-section">
+        <section class="action-section" data-aos="fade-in" data-aos-delay="200">
             <div class="equity-grant-container">
                 <div class="equity-grant-header">Founding 100 Equity Grant</div>
                 <div class="equity-grant-body">The first 100 enterprise partners to deploy the V&K infrastructure stack are granted 1,000 shares of private equity in Vanderbilt & Knight Partners LLC.</div>
@@ -344,8 +321,16 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Smooth scroll and reveal for the consultation button
+        AOS.init({
+            duration: 800,        // values from 0 to 3000, with step 50ms
+            easing: 'ease-out-cubic', // default easing for AOS animations
+            once: true,           // whether animation should happen only once - while scrolling down
+            offset: 100,          // offset (in px) from the original trigger point
+        });
+
+        // Consultation Button Scroll Logic
         const consultBtn = document.getElementById('nav-consult-btn');
         if (consultBtn) {
             consultBtn.addEventListener('click', function(e) {
@@ -366,30 +351,6 @@
                 });
             });
         }
-
-        /* VK SYSTEM REVEAL ENGINE */
-        document.addEventListener("DOMContentLoaded", function() {
-            const cards = document.querySelectorAll('.infrastructure-card');
-            
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15 
-            };
-
-            const cardObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('power-up');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            cards.forEach(card => {
-                cardObserver.observe(card);
-            });
-        });
     </script>
 </body>
 </html>
