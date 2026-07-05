@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Enterprise Scale | Infrastructure Audit & Consolidation | V&K Partners</title>
+    <meta name="description" content="Consolidate your enterprise tech stack. Migrate fragmented payroll, payment gateways, and managed IT into a single, high-performance architecture.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:ital,wght@0,500;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-pure-black: #000000;
+            --surface-dark: #0a0a0a;
+            --border-color: #1f1f1f;
+            --vk-gold: #d4af37;
+            --vk-gold-dim: #8b7325;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Inter', sans-serif;
+            --alert-red: #8b2525;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; }
+
+        body {
+            background-color: var(--bg-pure-black);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAVIGATION BAR */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.2rem 4%; background-color: var(--bg-pure-black);
+            border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100;
+        }
+        .header-left { display: flex; align-items: center; }
+        .brand-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo-icon { height: 58px; width: auto; object-fit: contain; filter: brightness(1.2); }
+        .brand-text { font-family: var(--font-heading); font-size: 1.3rem; letter-spacing: 3px; color: var(--text-main); font-weight: 600; text-transform: uppercase; }
+        .header-right { display: flex; align-items: center; gap: 28px; }
+        
+        .nav-link {
+            display: flex; flex-direction: column; align-items: center; font-family: var(--font-body);
+            font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--text-main); text-decoration: none; transition: color 0.3s ease; line-height: 1.2;
+            font-weight: 600;
+        }
+        .nav-sub { font-size: 0.65rem; color: var(--vk-gold-dim); letter-spacing: 2px; font-weight: 400; margin-top: 4px; transition: color 0.3s ease; }
+        .nav-link:hover { color: var(--vk-gold); }
+        .nav-link:hover .nav-sub { color: var(--vk-gold); }
+        
+        .nav-button {
+            background-color: var(--vk-gold); color: var(--bg-pure-black); font-family: var(--font-body);
+            font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
+            padding: 0.7rem 1.4rem; font-weight: 600; cursor: pointer; transition: opacity 0.3s ease; text-align: center;
+            margin-left: 10px;
+        }
+        .nav-button:hover { opacity: 0.8; }
+
+        /* SCALE HERO SECTION */
+        main { flex: 1; display: flex; flex-direction: column; align-items: center; width: 100%; }
+
+        .hq-hero {
+            text-align: center;
+            padding: 6rem 20px 3rem;
+            max-width: 850px;
+            width: 100%;
+        }
+        .hq-eyebrow { font-size: 0.75rem; color: var(--vk-gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem; font-weight: 600; }
+        .hq-hero h1 { font-family: var(--font-heading); font-size: 2.2rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
+        .hq-hero p { color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; }
+
+        /* DIAGNOSTIC MATRIX */
+        .stack-matrix {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1000px;
+            padding: 0 20px 8rem; 
+        }
+
+        .stack-card {
+            background-color: #080808;
+            border: 2px solid #222222; 
+            padding: 2.5rem 2.5rem 4.5rem 2.5rem; 
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            user-select: none;
+            opacity: 0.9;
+        }
+
+        .card-checkbox {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 1.4rem;
+            height: 1.4rem;
+            accent-color: var(--alert-red);
+            cursor: pointer;
+            pointer-events: none; 
+        }
+
+        /* INVERTED ACTIVE STATES FOR DIAGNOSTIC */
+        .stack-card.active {
+            border-color: var(--alert-red);
+            background-color: #0d0505;
+            opacity: 1;
+            box-shadow: 0 0 15px rgba(139, 37, 37, 0.15);
+        }
+        .stack-card:hover { transform: translateY(-3px); border-color: #444; }
+        .stack-card.active:hover { border-color: var(--alert-red); }
+
+        .status-badge {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 4px 8px;
+            transition: all 0.3s ease;
+        }
+        .active .status-badge { background-color: var(--alert-red); color: #fff; }
+        .inactive .status-badge { background-color: transparent; border: 1px solid #444; color: #777; }
+        
+        .active .status-badge::after { content: "BOTTLENECK IDENTIFIED"; }
+        .inactive .status-badge::after { content: "SELECT IF APPLICABLE"; }
+
+        .card-title {
+            font-family: var(--font-heading); font-size: 1.2rem; color: var(--text-main); margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 1px; width: 85%; line-height: 1.3;
+        }
+        .active .card-title { color: #ff6b6b; }
+        .card-desc { font-size: 0.9rem; color: #999; line-height: 1.6; }
+
+        /* FIXED ACTION BAR (Sticky Footer) */
+        .action-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--bg-pure-black);
+            border-top: 1px solid var(--border-color);
+            padding: 1.5rem 20px;
+            z-index: 100;
+        }
+        
+        .action-bar-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .action-summary {
+            font-family: var(--font-heading); font-size: 0.95rem; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase; line-height: 1.4; max-width: 650px;
+        }
+        .action-summary span { color: var(--vk-gold); font-weight: 700; font-size: 1.1rem; }
+        
+        .deploy-btn {
+            background-color: var(--vk-gold); color: #000; font-family: var(--font-body);
+            font-size: 0.85rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+            padding: 1rem 2rem; border: none; cursor: pointer; transition: opacity 0.3s ease;
+        }
+        .deploy-btn:hover { opacity: 0.8; }
+        
+        .deploy-btn:disabled { background-color: #333; color: #666; cursor: not-allowed; }
+
+        @media (max-width: 1024px) {
+            header { flex-direction: column; gap: 1.5rem; padding: 1.5rem 4%; }
+            .header-right { flex-wrap: wrap; justify-content: center; gap: 20px; }
+        }
+        @media (max-width: 768px) {
+            .stack-matrix { grid-template-columns: 1fr; }
+            .action-bar-inner { flex-direction: column; gap: 15px; text-align: center; }
+            .deploy-btn { width: 100%; }
+            .action-summary { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="brand-link">
+                <img src="knight_only.png" alt="V&K Icon" class="nav-logo-icon">
+                <span class="brand-text">V&K Partners</span>
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="index.html" class="nav-link">The Ecosystem <span class="nav-sub">(Overview)</span></a>
+            <a href="vklaunch.html" class="nav-link">Founder HQ <span class="nav-sub">(Launch)</span></a>
+            <a href="vkscale.html" class="nav-link">Enterprise Scale <span class="nav-sub">(Upgrade)</span></a>
+            <a href="vkalliance.html" class="nav-link">Founding 100 <span class="nav-sub">(Equity Access)</span></a>
+            <a href="vkaudit.html" class="nav-button" id="nav-consult-btn">Consultation</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="hq-hero">
+            <div class="hq-eyebrow">Enterprise Infrastructure Audit</div>
+            <h1>Stop Paying 12 Different Vendors.</h1>
+            <p>Select the operational bottlenecks currently fracturing your margins and slowing your growth. Our architects will generate a unified migration strategy to consolidate your tech stack under a single managed layer.</p>
+        </div>
+
+        <div class="stack-matrix" id="stackMatrix">
+            
+            <div class="stack-card inactive" data-solution="VK Flow">
+                <input type="checkbox" class="card-checkbox">
+                <div class="card-title">High Payment Margins & Reconciliation Drag</div>
+                <div class="card-desc">We are losing too much revenue to payment processing fees, and reconciling multiple payment gateways across platforms is a manual nightmare.</div>
+                <div class="status-badge"></div>
+            </div>
+
+            <div class="stack-card inactive" data-solution="VK Shield">
+                <input type="checkbox" class="card-checkbox">
+                <div class="card-title">Fragmented IT & Cloud Security Risk</div>
+                <div class="card-desc">We are managing employee devices, cloud architecture, and security protocols across too many disconnected platforms without centralized IT support.</div>
+                <div class="status-badge"></div>
+            </div>
+
+            <div class="stack-card inactive" data-solution="VK People">
+                <input type="checkbox" class="card-checkbox">
+                <div class="card-title">Global Payroll & Compliance Friction</div>
+                <div class="card-desc">Hiring internationally and managing multi-currency payroll, benefits, and local tax compliance has become a massive structural headache.</div>
+                <div class="status-badge"></div>
+            </div>
+
+            <div class="stack-card inactive" data-solution="VK Cortex">
+                <input type="checkbox" class="card-checkbox">
+                <div class="card-title">Manual Operations & Workflow Inefficiency</div>
+                <div class="card-desc">Our workforce is bogged down by manual data entry, repetitive workflows, and inefficient client support that should be automated.</div>
+                <div class="status-badge"></div>
+            </div>
+
+            <div class="stack-card inactive" data-solution="VK Launch">
+                <input type="checkbox" class="card-checkbox">
+                <div class="card-title">Corporate Structure & Asset Vulnerability</div>
+                <div class="card-desc">We need to restructure our corporate entities, form holding companies, or optimize our tax registrations to prepare for a capital event.</div>
+                <div class="status-badge"></div>
+            </div>
+
+            <div class="stack-card inactive" data-solution="VK Alliance">
+                <input type="checkbox" class="card-checkbox">
+                <div class="card-title">Limited Access to Growth Capital</div>
+                <div class="card-desc">We need direct introduction to institutional funding pipelines, enterprise joint ventures, and elite executive networks to scale aggressively.</div>
+                <div class="status-badge"></div>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="action-bar" id="consultation-form">
+        <div class="action-bar-inner">
+            <div class="action-summary" id="dynamicSummary">
+                Awaiting input... Please select your primary operational bottlenecks above.
+            </div>
+            <button class="deploy-btn" id="deployBtn" disabled>Proceed to Audit</button>
+        </div>
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll('.stack-card');
+        const dynamicSummary = document.getElementById('dynamicSummary');
+        const deployBtn = document.getElementById('deployBtn');
+
+        let recommendedSolutions = new Set();
+
+        function updateActionBar() {
+            if (recommendedSolutions.size === 0) {
+                dynamicSummary.innerHTML = "Awaiting input... Please select your primary operational bottlenecks above.";
+                deployBtn.disabled = true;
+            } else {
+                const solutionsArray = Array.from(recommendedSolutions);
+                const highlightedSolutions = solutionsArray.map(sol => `<span>${sol}</span>`).join(" + ");
+                dynamicSummary.innerHTML = `Recommended Migration Architecture:<br>${highlightedSolutions}`;
+                deployBtn.disabled = false;
+            }
+        }
+
+        cards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (e.target.type === 'checkbox') return;
+                
+                const solutionName = this.getAttribute('data-solution');
+                const checkbox = this.querySelector('.card-checkbox');
+                
+                if (this.classList.contains('active')) {
+                    this.classList.remove('active');
+                    this.classList.add('inactive');
+                    checkbox.checked = false;
+                    recommendedSolutions.delete(solutionName);
+                } else {
+                    this.classList.remove('inactive');
+                    this.classList.add('active');
+                    checkbox.checked = true;
+                    recommendedSolutions.add(solutionName);
+                }
+
+                updateActionBar();
+            });
+        });
+
+        document.querySelectorAll('.card-checkbox').forEach(box => {
+            box.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.target.closest('.stack-card').click();
+            });
+        });
+
+        deployBtn.addEventListener('click', function() {
+            const selectedArray = Array.from(recommendedSolutions);
+            
+            // Route to audit flow with URL parameters
+            const queryString = encodeURIComponent(selectedArray.join(","));
+            window.location.href = "vkaudit.html?infrastructure=" + queryString;
+        });
+    </script>
+</body>
+</html>
