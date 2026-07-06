@@ -75,9 +75,9 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="footer-column">
                 <h4>VK Alliance (Founding 100)</h4>
                 <ul>
-                    <li><a href="vkalliance.html#deal-flow">Vetted Deal Flow & Enterprise Co-Investments</a></li>
-                    <li><a href="vkalliance.html#operator-network">Private Invite-Only Executive Network</a></li>
-                    <li><a href="vkalliance.html#equity-allocations">Founding 100 Private Equity Allocations</a></li>
+                    <li><a href="vkalliance.html#capital-alignment">Early Capital Alignment & Ecosystem Access</a></li>
+                    <li><a href="vkalliance.html#network">Private Invite-Only Executive Network</a></li>
+                    <li><a href="vkalliance.html#equity">Founding 100 Private Equity Allocations</a></li>
                 </ul>
             </div>
         </div>
