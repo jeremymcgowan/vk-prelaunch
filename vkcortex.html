@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Advanced AI Engineering & Cloud Infrastructure | VK Cortex</title>
+    
     <link rel="icon" type="image/png" href="favicon.png">
     <meta name="description" content="Deploy proprietary artificial intelligence. V&K Partners engineers private knowledge engines, autonomous support agents, and automated workflows.">
     <meta name="keywords" content="enterprise AI engineering, private cloud infrastructure, proprietary knowledge engines, autonomous client support, automated operational workflows, AI document extraction, secure enterprise AI">
@@ -30,7 +31,10 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; }
-
+html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
         body {
             background-color: var(--bg-pure-black);
             color: var(--text-main);
@@ -360,6 +364,8 @@
 
     </main>
 
+    document.addEventListener("DOMContentLoaded", function() {
+    const footerHTML = `
     <footer>
         <div class="footer-grid">
             <div class="footer-column">
@@ -422,9 +428,7 @@
                 <ul>
                     <li><a href="vkalliance.html#deal-flow">Vetted Deal Flow & Enterprise Co-Investments</a></li>
                     <li><a href="vkalliance.html#operator-network">Private Invite-Only Executive Network</a></li>
-                    <li><a href="vkalliance.html#treasury">Corporate Wealth & Treasury Frameworks</a></li>
                     <li><a href="vkalliance.html#equity-allocations">Founding 100 Private Equity Allocations</a></li>
-                    <li><a href="vkalliance.html#joint-ventures">Strategic Joint Ventures</a></li>
                 </ul>
             </div>
         </div>
@@ -432,10 +436,17 @@
         <div class="footer-bottom">
             <div class="footer-brand-name">V&K Partners</div>
             <div class="footer-tagline">HEADQUARTERED IN TAMPA, FL | DEPLOYED GLOBALLY | AUTHORITY. PRECISION. RESILIENCE.</div>
-            <div class="footer-copyright">© 2026 VANDERBILT & KNIGHT PARTNERS LLC. ALL RIGHTS RESERVED.</div>
+            <div class="footer-copyright">© 2026 VANDERBILT & KNIGHT PARTNERS INC. ALL RIGHTS RESERVED.</div>
         </div>
     </footer>
+    `;
 
+    // Inject the footer into the placeholder
+    const footerContainer = document.getElementById("vk-master-footer");
+    if (footerContainer) {
+        footerContainer.innerHTML = footerHTML;
+    }
+});
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
