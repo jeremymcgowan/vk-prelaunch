@@ -93,7 +93,7 @@
 
             <form id="intake-form" action="https://formspree.io/f/xdarbbbw" method="POST">
                 
-                <input type="hidden" name="_subject" value="New VK Scale Audit Intake!">
+                <input type="hidden" name="_subject" value="New VK Scale Audit Briefing!">
 
                 <div class="input-group">
                     <label>Full Name</label>
@@ -148,7 +148,6 @@
     <script src="footer.js"></script>
 
     <script>
-        // 1. Checkboxes URL Parser
         document.addEventListener("DOMContentLoaded", function() {
             const urlParams = new URLSearchParams(window.location.search);
             const infrastructure = urlParams.get('infrastructure');
@@ -163,10 +162,9 @@
             }
         });
 
-        // 2. AJAX Background Submission (Bypasses Formspree Thanks Page)
         const form = document.getElementById("intake-form");
         form.addEventListener("submit", async function(event) {
-            event.preventDefault(); // Stop default browser redirect
+            event.preventDefault(); 
             const btn = document.getElementById("submit-btn");
             btn.innerHTML = "Processing...";
             btn.disabled = true;
@@ -179,7 +177,7 @@
                     headers: { 'Accept': 'application/json' }
                 });
                 if (response.ok) {
-                    window.location.href = "vkcalendar.html"; // Instant redirect
+                    window.location.href = "vkcalendar.html"; 
                 } else {
                     alert("Oops! There was a problem submitting your form. Please try again.");
                     btn.innerHTML = "Submit & Proceed to Calendar";
