@@ -1,5 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
     const footerHTML = `
+    <style>
+        /* MASTER FOOTER GRID FIX - FORCES 3x2 BALANCE ON WIDE SCREENS */
+        .footer-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 4rem 2rem !important;
+        }
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+        }
+    </style>
+
     <footer>
         <div class="footer-grid">
             <div class="footer-column">
