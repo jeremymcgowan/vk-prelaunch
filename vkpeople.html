@@ -6,6 +6,7 @@
     
     <title>Global Workforce & Multi-Currency Payroll | VK People</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
     <meta name="description" content="Architect a borderless enterprise. V&K Partners manages unified global hiring, multi-currency payroll automation, health benefits, and contractor compliance.">
     <meta name="keywords" content="global employer of record, multi-currency payroll software, international hiring compliance, contractor classification, enterprise HR software, automated tax filing, borderless workforce management">
     
@@ -28,7 +29,10 @@
             --font-heading: 'Cinzel', serif;
             --font-body: 'Inter', sans-serif;
         }
-
+html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
         * { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; }
 
         body {
@@ -436,7 +440,8 @@
             </div>
         </div>
         
-        <div class="footer-bottom">
+        <div class="footer-bottom"><div id="vk-master-footer"></div>
+    <script src="footer.js"></script>
             <div class="footer-brand-name">V&K Partners</div>
             <div class="footer-tagline">HEADQUARTERED IN TAMPA, FL | DEPLOYED GLOBALLY | AUTHORITY. PRECISION. RESILIENCE.</div>
             <div class="footer-copyright">© 2026 VANDERBILT & KNIGHT PARTNERS LLC. ALL RIGHTS RESERVED.</div>
