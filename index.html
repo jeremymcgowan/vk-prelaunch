@@ -8,6 +8,7 @@
     <meta name="description" content="The catalyst for velocity, capital, and scale. We deploy a unified infrastructure that seamlessly merges your corporate formation, global payroll, IT security, AI engineering, and embedded payments.">
     
     <link rel="icon" href="favicon.png" type="image/png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:ital,wght@0,500;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -17,8 +18,9 @@
         :root {
             --bg-pure-black: #000000;
             --surface-dark: #0a0a0a;
+            --surface-light: #111111;
             --border-color: #1f1f1f;
-            --vk-gold: #d4af37;
+            --vk-gold: #C5A059; /* Richer, darker metallic gold */
             --vk-gold-dim: #8b7325;
             --text-main: #ffffff;
             --text-muted: #a0a0a0;
@@ -27,10 +29,12 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; }
-html {
+        
+        html {
             scroll-behavior: smooth;
             scroll-padding-top: 100px;
         }
+        
         body {
             background-color: var(--bg-pure-black);
             color: var(--text-main);
@@ -62,23 +66,17 @@ html {
         .nav-link {
             display: flex; flex-direction: column; align-items: center; font-family: var(--font-body);
             font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;
-            color: var(--text-main); text-decoration: none; transition: color 0.3s ease; line-height: 1.2;
-            font-weight: 600;
+            color: var(--text-main); text-decoration: none; transition: color 0.3s ease; line-height: 1.2; font-weight: 600;
         }
-        .nav-sub {
-            font-size: 0.65rem; color: var(--vk-gold-dim); letter-spacing: 2px;
-            font-weight: 400; margin-top: 4px; transition: color 0.3s ease;
-        }
-        .nav-link:hover { color: var(--vk-gold); }
-        .nav-link:hover .nav-sub { color: var(--vk-gold); }
+        .nav-sub { font-size: 0.65rem; color: var(--vk-gold-dim); letter-spacing: 2px; font-weight: 400; margin-top: 4px; transition: color 0.3s ease; }
+        .nav-link:hover, .nav-link:hover .nav-sub { color: var(--vk-gold); }
         
         .nav-button {
-            background-color: var(--vk-gold); color: var(--bg-pure-black); font-family: var(--font-body);
-            font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
-            padding: 0.7rem 1.4rem; font-weight: 600; cursor: pointer; transition: opacity 0.3s ease; text-align: center;
-            margin-left: 10px;
+            background-color: transparent; color: var(--vk-gold); border: 1px solid var(--vk-gold);
+            font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase;
+            text-decoration: none; padding: 0.7rem 1.4rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-left: 10px;
         }
-        .nav-button:hover { opacity: 0.8; }
+        .nav-button:hover { background-color: rgba(197, 160, 89, 0.1); }
 
         /* CANVAS AREA FRAMEWORK */
         main {
@@ -87,7 +85,7 @@ html {
         }
         main::before {
             content: ''; position: absolute; top: 10%; left: 50%; width: 800px; height: 400px;
-            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
+            background: radial-gradient(ellipse at center, rgba(197, 160, 89, 0.05) 0%, transparent 70%);
             transform: translateX(-50%); z-index: 0; pointer-events: none;
         }
 
@@ -115,7 +113,7 @@ html {
             /* Initial Hidden State */
             opacity: 0;
             transform: translateY(40px) scale(0.98);
-            box-shadow: 0 0 0 rgba(212, 175, 55, 0);
+            box-shadow: 0 0 0 rgba(197, 160, 89, 0);
         }
 
         .infrastructure-card.power-up {
@@ -133,7 +131,7 @@ html {
         .infrastructure-card.power-up:hover {
             transform: translateY(-5px);
             border-top-color: var(--vk-gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(197, 160, 89, 0.15);
             background-color: #050505;
             transition-delay: 0s; 
         }
@@ -150,37 +148,81 @@ html {
         .inquiry-container { background-color: var(--surface-dark); border: 1px solid var(--border-color); padding: 3rem 1.5rem; width: 100%; display: none; }
         .inquiry-container h2 { font-family: var(--font-heading); font-size: 1.3rem; color: var(--text-main); letter-spacing: 4px; text-align: center; margin-bottom: 2rem; text-transform: uppercase; }
 
-        /* ALIGNED STRUCTURE FOOTER LAYOUT (NEW 3x2 GRID) */
-        footer {
-            background-color: var(--bg-pure-black); border-top: 1px solid var(--border-color);
-            padding: 6rem 4% 4rem 4%; display: flex; flex-direction: column; align-items: center;
+        /* MASTER FOOTER STYLES */
+        footer { 
+            padding: 6rem 4% 2rem; 
+            background-color: var(--bg-pure-black); 
+            border-top: 1px solid var(--border-color); 
         }
-        .footer-grid { width: 100%; max-width: 1200px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem 3rem; margin-bottom: 5rem; text-align: left; }
-        .footer-column h4 { font-family: var(--font-heading); font-size: 0.8rem; color: var(--vk-gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 600; }
-        .footer-column ul { list-style: none; }
-        .footer-column ul li { margin-bottom: 1rem; }
-        .footer-column ul li a { color: var(--text-muted); text-decoration: none; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s ease; }
-        .footer-column ul li a:hover { color: var(--text-main); }
-        .footer-bottom { width: 100%; border-top: 1px solid #111111; padding-top: 3rem; text-align: center; }
-        .footer-brand-name { font-family: var(--font-heading); font-size: 1.4rem; letter-spacing: 8px; color: var(--text-main); text-transform: uppercase; margin-bottom: 1rem; font-weight: 500; }
-        .footer-tagline { color: var(--vk-gold); font-family: var(--font-body); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2rem; }
-        .footer-copyright { color: #333; font-family: var(--font-body); font-size: 0.6rem; letter-spacing: 1.8px; text-transform: uppercase; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+        }
+        .footer-column h4 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-column ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+            line-height: 1.5;
+            display: inline-block;
+        }
+        .footer-column ul li a:hover {
+            color: var(--vk-gold);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid #111;
+        }
+        .footer-brand-name {
+            font-family: var(--font-heading);
+            color: var(--vk-gold);
+            font-size: 1.5rem;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        .footer-tagline {
+            color: var(--text-main);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+        .footer-copyright {
+            color: #555;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
 
         /* VIEWPORT RESPONSIVENESS ADAPTATION ENGINE */
         @media (max-width: 1024px) {
             header { flex-direction: column; gap: 1.5rem; padding: 1.5rem 4%; }
             .header-right { flex-wrap: wrap; justify-content: center; gap: 20px; }
-            .nav-link { font-size: 0.75rem; }
             .infrastructure-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
             .infrastructure-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .header-right { gap: 15px; }
-            .nav-link { font-size: 0.7rem; }
-            .nav-sub { font-size: 0.6rem; }
-            .nav-button { padding: 0.6rem 1.2rem; font-size: 0.7rem; margin-left: 0; }
             h1.hero-title { font-size: 2rem; margin-bottom: 2rem; }
             .infrastructure-card { padding: 2.5rem 2rem; min-height: auto; }
             .equity-grant-container { padding: 2rem 1.5rem; }
@@ -203,7 +245,7 @@ html {
         <div class="header-right">
             <a href="index.html" class="nav-link">The Ecosystem <span class="nav-sub">(Overview)</span></a>
             <a href="vklaunch.html" class="nav-link">Founder HQ <span class="nav-sub">(Launch)</span></a>
-            <a href="vkshield.html" class="nav-link">Enterprise Scale <span class="nav-sub">(Upgrade)</span></a>
+            <a href="vkscale.html" class="nav-link">Enterprise Scale <span class="nav-sub">(Upgrade)</span></a>
             <a href="vkalliance.html" class="nav-link">Founding 100 <span class="nav-sub">(Equity Access)</span></a>
             <a href="#consultation-form" class="nav-button" id="nav-consult-btn">Consultation</a>
         </div>
@@ -258,7 +300,7 @@ html {
         <section class="action-section">
             <div class="equity-grant-container">
                 <div class="equity-grant-header">Founding 100 Equity Grant</div>
-                <div class="equity-grant-body">The first 100 enterprise partners to deploy the V&K infrastructure stack are granted 1,000 shares of private equity in Vanderbilt & Knight Partners LLC.</div>
+                <div class="equity-grant-body">The first 100 enterprise partners to deploy the V&K infrastructure stack are granted 1,000 shares of private equity in Vanderbilt & Knight Partners Inc.</div>
                 <div style="margin-top: 1.5rem; font-size: 0.75rem; color: #666; text-transform: uppercase; letter-spacing: 1px;">Subject to qualification, migration requirements, and operating agreement terms.</div>
             </div>
 
@@ -271,6 +313,7 @@ html {
 
     <div id="vk-master-footer"></div>
     <script src="footer.js"></script>
+
     <script>
         // Smooth scroll and reveal for the consultation button
         const consultBtn = document.getElementById('nav-consult-btn');
