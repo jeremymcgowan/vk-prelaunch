@@ -31,7 +31,10 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; }
-
+html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
         body {
             background-color: var(--bg-pure-black);
             color: var(--text-main);
@@ -342,6 +345,8 @@
 
     </main>
 
+    document.addEventListener("DOMContentLoaded", function() {
+    const footerHTML = `
     <footer>
         <div class="footer-grid">
             <div class="footer-column">
@@ -415,6 +420,14 @@
             <div class="footer-copyright">© 2026 VANDERBILT & KNIGHT PARTNERS INC. ALL RIGHTS RESERVED.</div>
         </div>
     </footer>
+    `;
+
+    // Inject the footer into the placeholder
+    const footerContainer = document.getElementById("vk-master-footer");
+    if (footerContainer) {
+        footerContainer.innerHTML = footerHTML;
+    }
+});
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
