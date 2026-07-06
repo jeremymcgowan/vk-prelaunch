@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Executive Briefing Intake | V&K Partners</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:ital,wght@0,500;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-pure-black: #000000;
+            --surface-dark: #0a0a0a;
+            --border-color: #1f1f1f;
+            --vk-gold: #C5A059;
+            --vk-gold-dim: #8b7325;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Inter', sans-serif;
+        }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; }
+        html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+        body { background-color: var(--bg-pure-black); color: var(--text-main); font-family: var(--font-body); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+
+        header { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4%; background-color: var(--bg-pure-black); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+        .brand-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo-icon { height: 58px; width: auto; object-fit: contain; filter: brightness(1.2); }
+        .brand-text { font-family: var(--font-heading); font-size: 1.3rem; letter-spacing: 3px; color: var(--text-main); font-weight: 600; text-transform: uppercase; }
+
+        main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 4rem 20px; width: 100%; }
+        
+        .form-container { background-color: #050505; border: 1px solid var(--border-color); padding: 4rem; width: 100%; max-width: 600px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .form-header { text-align: center; margin-bottom: 3rem; }
+        .form-header h1 { font-family: var(--font-heading); font-size: 1.8rem; color: var(--text-main); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .form-header p { color: var(--vk-gold); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.5rem; font-weight: 600; }
+        .input-group input[type="text"], .input-group input[type="email"] { width: 100%; padding: 1rem; background-color: var(--bg-pure-black); border: 1px solid #333; color: white; font-family: var(--font-body); font-size: 1rem; transition: all 0.3s; }
+        .input-group input:focus { border-color: var(--vk-gold); outline: none; box-shadow: 0 0 10px rgba(197, 160, 89, 0.1); }
+
+        .modules-group { margin-bottom: 2.5rem; padding: 1.5rem; border: 1px solid #222; background-color: #020202; }
+        .modules-group h3 { font-size: 0.8rem; color: var(--text-main); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; border-bottom: 1px solid #222; padding-bottom: 0.5rem; }
+        
+        .checkbox-row { display: flex; align-items: center; margin-bottom: 0.8rem; }
+        .checkbox-row input[type="checkbox"] { accent-color: var(--vk-gold); width: 1.1rem; height: 1.1rem; margin-right: 12px; cursor: not-allowed; }
+        .checkbox-row label { font-size: 0.9rem; color: #aaa; cursor: default; }
+        .checkbox-row input:checked + label { color: var(--vk-gold); font-weight: 600; }
+
+        .submit-btn { width: 100%; background-color: transparent; color: var(--vk-gold); border: 1px solid var(--vk-gold); padding: 1.2rem; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; }
+        .submit-btn:hover { background-color: rgba(197, 160, 89, 0.1); }
+
+        @media (max-width: 768px) {
+            .form-container { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="brand-link">
+                <img src="knight_only.png" alt="V&K Icon" class="nav-logo-icon">
+                <span class="brand-text">V&K Partners</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Architecture Intake</h1>
+                <p>Step 1 of 2: Confirm Details</p>
+            </div>
+
+            <form action="https://formspree.io/f/xdarbbbw" method="POST">
+                
+                <input type="hidden" name="_next" value="https://vkpartners.co/vkcalendar.html">
+                <input type="hidden" name="_subject" value="New VK Founder HQ Intake!">
+
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" required placeholder="John Doe">
+                </div>
+
+                <div class="input-group">
+                    <label>Corporate Email</label>
+                    <input type="email" name="email" required placeholder="john@enterprise.com">
+                </div>
+
+                <div class="input-group">
+                    <label>Company Name</label>
+                    <input type="text" name="company" required placeholder="Enterprise Corp Ltd.">
+                </div>
+
+                <div class="modules-group">
+                    <h3>Selected Infrastructure Modules</h3>
+                    
+                    <div class="checkbox-row">
+                        <input type="checkbox" name="module_launch" id="mod-launch" value="Yes" onclick="return false;">
+                        <label for="mod-launch">VK Launch // Formation</label>
+                    </div>
+                    <div class="checkbox-row">
+                        <input type="checkbox" name="module_flow" id="mod-flow" value="Yes" onclick="return false;">
+                        <label for="mod-flow">VK Flow // Payments</label>
+                    </div>
+                    <div class="checkbox-row">
+                        <input type="checkbox" name="module_shield" id="mod-shield" value="Yes" onclick="return false;">
+                        <label for="mod-shield">VK Shield // IT Security</label>
+                    </div>
+                    <div class="checkbox-row">
+                        <input type="checkbox" name="module_people" id="mod-people" value="Yes" onclick="return false;">
+                        <label for="mod-people">VK People // Workforce</label>
+                    </div>
+                    <div class="checkbox-row">
+                        <input type="checkbox" name="module_cortex" id="mod-cortex" value="Yes" onclick="return false;">
+                        <label for="mod-cortex">VK Cortex // AI</label>
+                    </div>
+                    <div class="checkbox-row">
+                        <input type="checkbox" name="module_alliance" id="mod-alliance" value="Yes" onclick="return false;">
+                        <label for="mod-alliance">VK Alliance // Partnership</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit & Proceed to Calendar</button>
+            </form>
+        </div>
+    </main>
+
+    <div id="vk-master-footer"></div>
+    <script src="footer.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const modules = urlParams.get('modules');
+            
+            if (modules) {
+                const selected = modules.split(',');
+                selected.forEach(mod => {
+                    // Match the URL parameter string to the checkbox ID
+                    const idMapping = {
+                        "Launch": "mod-launch",
+                        "Flow": "mod-flow",
+                        "Shield": "mod-shield",
+                        "People": "mod-people",
+                        "Cortex": "mod-cortex",
+                        "Alliance": "mod-alliance"
+                    };
+                    
+                    const checkboxId = idMapping[mod.trim()];
+                    if (checkboxId) {
+                        document.getElementById(checkboxId).checked = true;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
