@@ -39,6 +39,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* NAVIGATION BAR */
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 1.2rem 4%; background-color: var(--bg-pure-black);
@@ -65,6 +66,7 @@
         }
         .nav-button:hover { background-color: rgba(197, 160, 89, 0.1); }
 
+        /* PRODUCT HERO */
         .product-hero {
             padding: 8rem 4% 6rem;
             text-align: center;
@@ -75,6 +77,7 @@
         .product-hero h1 { font-family: var(--font-heading); font-size: 3.5rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; line-height: 1.1; }
         .product-hero p { max-width: 800px; margin: 0 auto 3rem; color: var(--text-muted); font-size: 1.2rem; line-height: 1.8; }
         
+        /* CONTENT ARCHITECTURE */
         .content-section { padding: 6rem 4%; display: flex; flex-direction: column; align-items: center; }
         .content-section:nth-child(even) { background-color: var(--surface-dark); }
         
@@ -100,10 +103,12 @@
         .visual-stat { font-family: var(--font-heading); font-size: 4rem; color: var(--vk-gold); line-height: 1; margin-bottom: 1rem; }
         .visual-label { font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); }
 
+        /* LONG-FORM SEO TEXT BANNER */
         .seo-banner { max-width: 900px; margin: 0 auto; text-align: left; padding: 6rem 20px; }
         .seo-banner h3 { font-family: var(--font-heading); font-size: 1.8rem; color: var(--vk-gold); margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
         .seo-banner p { color: var(--text-main); font-size: 1.1rem; line-height: 1.9; margin-bottom: 2rem; }
 
+        /* FAQ ACCORDION */
         .faq-section { padding: 6rem 4% 8rem; background-color: var(--surface-dark); border-top: 1px solid var(--border-color); }
         .faq-container { max-width: 900px; margin: 0 auto; }
         .faq-header { text-align: center; margin-bottom: 4rem; }
@@ -117,6 +122,7 @@
         details[open] { border-color: var(--vk-gold-dim); }
         .faq-content { padding: 0 2rem 2rem; color: var(--text-muted); line-height: 1.7; font-size: 0.95rem; }
 
+        /* FLOATING CTA STRIP */
         .cta-strip {
             background-color: #050505; border: 1px solid var(--vk-gold);
             padding: 4rem 4%; text-align: center; max-width: 1000px; margin: 0 auto 6rem auto;
@@ -128,13 +134,84 @@
         }
         .cta-btn:hover { background-color: rgba(197, 160, 89, 0.1); }
 
-        footer { padding: 6rem 4% 4rem; background-color: var(--bg-pure-black); text-align: center; border-top: 1px solid var(--border-color); }
-        .footer-note { color: var(--text-muted); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
+        /* MASTER FOOTER STYLES */
+        footer { 
+            padding: 6rem 4% 2rem; 
+            background-color: var(--bg-pure-black); 
+            border-top: 1px solid var(--border-color); 
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+        }
+        .footer-column h4 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-column ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+            line-height: 1.5;
+            display: inline-block;
+        }
+        .footer-column ul li a:hover {
+            color: var(--vk-gold);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid #111;
+        }
+        .footer-brand-name {
+            font-family: var(--font-heading);
+            color: var(--vk-gold);
+            font-size: 1.5rem;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        .footer-tagline {
+            color: var(--text-main);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+        .footer-copyright {
+            color: #555;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
 
+        /* RESPONSIVE DESIGN RESTORED */
         @media (max-width: 1024px) {
+            header { flex-direction: column; gap: 1.5rem; padding: 1.5rem 4%; }
+            .header-right { flex-wrap: wrap; justify-content: center; gap: 20px; }
             .content-grid { grid-template-columns: 1fr; gap: 4rem; }
             .content-grid.reverse { direction: ltr; }
             .product-hero h1 { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .product-hero { padding: 6rem 20px 3rem; }
+            .content-section { padding: 4rem 20px; }
+            .visual-block { min-height: 300px; padding: 2rem; }
         }
     </style>
 </head>
@@ -283,7 +360,79 @@
     </main>
 
     <footer>
-        <div class="footer-note">[ Master Footer Goes Here ]</div>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>Business Formation</h4>
+                <ul>
+                    <li><a href="vkformation.html#incorporation">US & Offshore Entity Incorporation</a></li>
+                    <li><a href="vkformation.html#tax-registration">IRS EIN & State Tax Registration</a></li>
+                    <li><a href="vkformation.html#agreements">Corporate Operating Agreements & Bylaws</a></li>
+                    <li><a href="vkformation.html#holding-companies">Holding Companies & Asset Protection Shields</a></li>
+                    <li><a href="vkformation.html#registered-agent">Turnkey Registered Agent Services</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Embedded Payments</h4>
+                <ul>
+                    <li><a href="vkflow.html#processing">Credit, Debit, ACH & Digital Wallet Processing</a></li>
+                    <li><a href="vkflow.html#merchant-accounts">Merchant Accounts & Secure Gateways</a></li>
+                    <li><a href="vkflow.html#custom-checkout">Custom Checkout & Payment Links</a></li>
+                    <li><a href="vkflow.html#fraud-shield">Fraud Shield & Secure Data Vaulting</a></li>
+                    <li><a href="vkflow.html#recurring-billing">B2B Invoicing & Recurring Subscriptions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>IT Managed Services</h4>
+                <ul>
+                    <li><a href="vkshield.html#helpdesk">24/7 Full-Service MSP IT Help Desk Support</a></li>
+                    <li><a href="vkshield.html#device-provisioning">Zero-Touch Employee Device Provisioning</a></li>
+                    <li><a href="vkshield.html#cloud-management">Cloud Architecture & Migrations</a></li>
+                    <li><a href="vkshield.html#cyber-security">Security & Compliance (FINRA, HIPAA, NIST, PCI)</a></li>
+                    <li><a href="vkshield.html#backup-recovery">Automated Disaster Recovery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Workforce & Payroll</h4>
+                <ul>
+                    <li><a href="vkpeople.html#global-hiring">Global Hiring & Entity Compliance</a></li>
+                    <li><a href="vkpeople.html#global-payroll">Multi-Currency Payroll Automation</a></li>
+                    <li><a href="vkpeople.html#health-benefits">Health Insurance & Benefits Management</a></li>
+                    <li><a href="vkpeople.html#contractor-compliance">Contractor Compliance Guard</a></li>
+                    <li><a href="vkpeople.html#tax-filing">Tax Filing & Reporting Automation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Advanced AI & Cloud Engineering</h4>
+                <ul>
+                    <li><a href="vkcortex.html#data-privacy">Private Enterprise Cloud Infrastructure (IaaS)</a></li>
+                    <li><a href="vkcortex.html#internal-ai">Proprietary Knowledge Engines</a></li>
+                    <li><a href="vkcortex.html#workflow-automation">Automated Operational Workflows</a></li>
+                    <li><a href="vkcortex.html#client-support">Autonomous Client Support Agents</a></li>
+                    <li><a href="vkcortex.html#document-processing">Smart Document & Data Extraction</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>VK Alliance (Founding 100)</h4>
+                <ul>
+                    <li><a href="vkalliance.html#deal-flow">Vetted Deal Flow & Enterprise Co-Investments</a></li>
+                    <li><a href="vkalliance.html#operator-network">Private Invite-Only Executive Network</a></li>
+                    <li><a href="vkalliance.html#treasury">Corporate Wealth & Treasury Frameworks</a></li>
+                    <li><a href="vkalliance.html#equity-allocations">Founding 100 Private Equity Allocations</a></li>
+                    <li><a href="vkalliance.html#joint-ventures">Strategic Joint Ventures</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-brand-name">V&K Partners</div>
+            <div class="footer-tagline">HEADQUARTERED IN TAMPA, FL | DEPLOYED GLOBALLY | AUTHORITY. PRECISION. RESILIENCE.</div>
+            <div class="footer-copyright">© 2026 VANDERBILT & KNIGHT PARTNERS LLC. ALL RIGHTS RESERVED.</div>
+        </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
