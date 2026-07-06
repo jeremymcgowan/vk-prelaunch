@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Advanced AI Engineering & Cloud Infrastructure | VK Cortex</title>
+    <meta name="description" content="Deploy proprietary artificial intelligence. V&K Partners engineers private knowledge engines, autonomous support agents, and automated workflows.">
+    <meta name="keywords" content="enterprise AI engineering, private cloud infrastructure, proprietary knowledge engines, autonomous client support, automated operational workflows, AI document extraction, secure enterprise AI">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:ital,wght@0,500;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-pure-black: #000000;
+            --surface-dark: #0a0a0a;
+            --surface-light: #111111;
+            --border-color: #1f1f1f;
+            --vk-gold: #C5A059; 
+            --vk-gold-dim: #8b7325;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; }
+
+        body {
+            background-color: var(--bg-pure-black);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.2rem 4%; background-color: var(--bg-pure-black);
+            border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100;
+        }
+        .header-left { display: flex; align-items: center; }
+        .brand-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo-icon { height: 58px; width: auto; object-fit: contain; filter: brightness(1.2); }
+        .brand-text { font-family: var(--font-heading); font-size: 1.3rem; letter-spacing: 3px; color: var(--text-main); font-weight: 600; text-transform: uppercase; }
+        .header-right { display: flex; align-items: center; gap: 28px; }
+        
+        .nav-link {
+            display: flex; flex-direction: column; align-items: center; font-family: var(--font-body);
+            font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--text-main); text-decoration: none; transition: color 0.3s ease; line-height: 1.2; font-weight: 600;
+        }
+        .nav-sub { font-size: 0.65rem; color: var(--vk-gold-dim); letter-spacing: 2px; font-weight: 400; margin-top: 4px; transition: color 0.3s ease; }
+        .nav-link:hover, .nav-link:hover .nav-sub { color: var(--vk-gold); }
+        
+        .nav-button {
+            background-color: transparent; color: var(--vk-gold); border: 1px solid var(--vk-gold);
+            font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase;
+            text-decoration: none; padding: 0.7rem 1.4rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
+        }
+        .nav-button:hover { background-color: rgba(197, 160, 89, 0.1); }
+
+        .product-hero {
+            padding: 8rem 4% 6rem;
+            text-align: center;
+            background: radial-gradient(ellipse at top, rgba(197, 160, 89, 0.05) 0%, transparent 60%);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .hero-label { font-size: 0.75rem; color: var(--vk-gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 600; }
+        .product-hero h1 { font-family: var(--font-heading); font-size: 3.5rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; line-height: 1.1; }
+        .product-hero p { max-width: 800px; margin: 0 auto 3rem; color: var(--text-muted); font-size: 1.2rem; line-height: 1.8; }
+        
+        .content-section { padding: 6rem 4%; display: flex; flex-direction: column; align-items: center; }
+        .content-section:nth-child(even) { background-color: var(--surface-dark); }
+        
+        .content-grid {
+            max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+        }
+        .content-grid.reverse { direction: rtl; }
+        .content-grid.reverse > * { direction: ltr; }
+
+        .text-block h2 { font-family: var(--font-heading); font-size: 2rem; color: var(--text-main); margin-bottom: 1.5rem; letter-spacing: 1px; text-transform: uppercase; }
+        .text-block h2 span { color: var(--vk-gold); }
+        .text-block p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; }
+        .text-block ul { list-style: none; margin-top: 2rem; }
+        .text-block ul li { position: relative; padding-left: 1.5rem; margin-bottom: 1rem; color: var(--text-main); font-size: 0.95rem; letter-spacing: 0.5px; }
+        .text-block ul li::before { content: '■'; position: absolute; left: 0; color: var(--vk-gold); font-size: 0.7rem; top: 4px; }
+
+        .visual-block {
+            background-color: var(--surface-light); border: 1px solid var(--border-color);
+            padding: 4rem; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            min-height: 400px; position: relative; overflow: hidden;
+        }
+        .visual-block::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background-color: var(--vk-gold); }
+        .visual-stat { font-family: var(--font-heading); font-size: 4rem; color: var(--vk-gold); line-height: 1; margin-bottom: 1rem; }
+        .visual-label { font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); }
+
+        .seo-banner { max-width: 900px; margin: 0 auto; text-align: left; padding: 6rem 20px; }
+        .seo-banner h3 { font-family: var(--font-heading); font-size: 1.8rem; color: var(--vk-gold); margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
+        .seo-banner p { color: var(--text-main); font-size: 1.1rem; line-height: 1.9; margin-bottom: 2rem; }
+
+        .faq-section { padding: 6rem 4% 8rem; background-color: var(--surface-dark); border-top: 1px solid var(--border-color); }
+        .faq-container { max-width: 900px; margin: 0 auto; }
+        .faq-header { text-align: center; margin-bottom: 4rem; }
+        .faq-header h2 { font-family: var(--font-heading); font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px; }
+        
+        details { background-color: var(--bg-pure-black); border: 1px solid var(--border-color); margin-bottom: 1rem; transition: all 0.3s ease; }
+        summary { padding: 1.5rem 2rem; font-family: var(--font-body); font-weight: 600; font-size: 1.05rem; cursor: pointer; list-style: none; position: relative; color: var(--text-main); letter-spacing: 0.5px; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; position: absolute; right: 2rem; top: 50%; transform: translateY(-50%); color: var(--vk-gold); font-size: 1.5rem; font-weight: 300; }
+        details[open] summary::after { content: '−'; }
+        details[open] { border-color: var(--vk-gold-dim); }
+        .faq-content { padding: 0 2rem 2rem; color: var(--text-muted); line-height: 1.7; font-size: 0.95rem; }
+
+        .cta-strip {
+            background-color: #050505; border: 1px solid var(--vk-gold);
+            padding: 4rem 4%; text-align: center; max-width: 1000px; margin: 0 auto 6rem auto;
+        }
+        .cta-strip h2 { font-family: var(--font-heading); font-size: 1.8rem; color: var(--text-main); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; font-weight: 700; }
+        .cta-btn {
+            background-color: transparent; color: var(--vk-gold); border: 1px solid var(--vk-gold);
+            padding: 1rem 3rem; text-decoration: none; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; transition: all 0.3s; display: inline-block; cursor: pointer;
+        }
+        .cta-btn:hover { background-color: rgba(197, 160, 89, 0.1); }
+
+        footer { padding: 6rem 4% 4rem; background-color: var(--bg-pure-black); text-align: center; border-top: 1px solid var(--border-color); }
+        .footer-note { color: var(--text-muted); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
+
+        @media (max-width: 1024px) {
+            .content-grid { grid-template-columns: 1fr; gap: 4rem; }
+            .content-grid.reverse { direction: ltr; }
+            .product-hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="brand-link">
+                <img src="knight_only.png" alt="V&K Icon" class="nav-logo-icon">
+                <span class="brand-text">V&K Partners</span>
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="index.html" class="nav-link">The Ecosystem <span class="nav-sub">(Overview)</span></a>
+            <a href="vklaunch.html" class="nav-link">Founder HQ <span class="nav-sub">(Launch)</span></a>
+            <a href="vkscale.html" class="nav-link">Enterprise Scale <span class="nav-sub">(Upgrade)</span></a>
+            <a href="vkalliance.html" class="nav-link">Founding 100 <span class="nav-sub">(Equity Access)</span></a>
+            <a href="vkaudit.html" class="nav-button">Deploy Stack</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-hero">
+            <div class="hero-label" data-aos="fade-down">VK Cortex // AI Engineering</div>
+            <h1 data-aos="fade-up" data-aos-delay="100">Weaponize Your<br>Private Data.</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Public AI tools expose your intellectual property. V&K Partners deploys proprietary, enterprise-grade AI models housed in private cloud infrastructure—engineering autonomous agents and predictive engines to multiply your operational output.</p>
+        </section>
+
+        <section class="seo-banner" data-aos="fade-in">
+            <h3>The Intelligence Advantage</h3>
+            <p>Most enterprises restrict artificial intelligence out of fear. Using public tools like standard ChatGPT or Anthropic to process client data, source code, or financial records fundamentally breaks corporate privacy and risks data leakage. True operational velocity requires private AI infrastructure.</p>
+            <p>VK Cortex builds bespoke, ring-fenced AI environments for your enterprise. We engineer models trained exclusively on your internal Standard Operating Procedures, historical data, and client interactions. The result is an autonomous digital workforce that understands your company’s exact context, capable of executing complex workflows securely and independently.</p>
+        </section>
+
+        <section class="content-section" id="data-privacy">
+            <div class="content-grid">
+                <div class="text-block" data-aos="fade-right">
+                    <h2>Private Enterprise <span>Cloud Infrastructure</span></h2>
+                    <p>Before we deploy a single line of AI code, we construct the vault. VK Cortex provisions private Cloud Infrastructure as a Service (IaaS) specifically optimized for large language model inference and secure data ingestion.</p>
+                    <p>This means your models run entirely on isolated servers. The data you feed into your AI is never utilized to train global, public models. Your intellectual property remains entirely contained within your corporate perimeter.</p>
+                    <ul>
+                        <li><strong>SOC-2 Compliant Hosting:</strong> Secure instances deployed on AWS, Azure, or dedicated GPU clusters.</li>
+                        <li><strong>Air-Gapped Privacy:</strong> Zero data leakage to public foundation models.</li>
+                        <li><strong>Role-Based Access:</strong> Strict permission structures so employees only interact with the data they are authorized to view.</li>
+                    </ul>
+                </div>
+                <div class="visual-block" data-aos="fade-left">
+                    <div class="visual-stat">01</div>
+                    <div class="visual-label">Secure Containment</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="internal-ai">
+            <div class="content-grid reverse">
+                <div class="text-block" data-aos="fade-left">
+                    <h2>Proprietary <span>Knowledge Engines</span></h2>
+                    <p>Your company’s greatest asset is its institutional knowledge—but it is buried in fragmented PDFs, Slack channels, and email threads. We deploy enterprise search architectures (RAG: Retrieval-Augmented Generation) to unify this data.</p>
+                    <p>Imagine an internal AI assistant that has instantly read every contract, employee handbook, and past project file in your history. When an employee asks a highly technical question, the engine delivers the exact answer in seconds, fully cited to your internal documents.</p>
+                    <ul>
+                        <li><strong>Centralized Ingestion:</strong> Connects directly to Google Drive, SharePoint, and proprietary databases.</li>
+                        <li><strong>Contextual Accuracy:</strong> Eliminates AI hallucination by forcing the model to cite your private records.</li>
+                        <li><strong>Accelerated Onboarding:</strong> New hires query the AI to learn SOPs instantly instead of disrupting senior staff.</li>
+                    </ul>
+                </div>
+                <div class="visual-block" data-aos="fade-right">
+                    <div class="visual-stat">02</div>
+                    <div class="visual-label">Institutional Memory</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="workflow-automation">
+            <div class="content-grid" id="client-support">
+                <div class="text-block" data-aos="fade-right">
+                    <h2>Autonomous <span>Operational Workflows</span></h2>
+                    <p>VK Cortex transforms AI from a simple chat interface into an action-oriented workflow engine. We integrate our models via API into your core software stack (CRMs, ERPs, Billing Platforms) to execute repetitive tasks autonomously.</p>
+                    <p>From drafting hyper-personalized outbound sales sequences to auto-resolving Level-1 client support tickets, our agents operate 24/7, driving down payroll overhead and increasing execution speed.</p>
+                    <ul>
+                        <li><strong>Client Support Agents:</strong> Deploy intelligent bots capable of securely authenticating users and resolving complex account issues.</li>
+                        <li><strong>Sales Intelligence:</strong> Automatically scrape lead data and draft custom pitches based on prospect history.</li>
+                        <li><strong>Code Co-Pilots:</strong> Private coding assistants trained on your specific engineering repositories.</li>
+                    </ul>
+                </div>
+                <div class="visual-block" data-aos="fade-left">
+                    <div class="visual-stat">03</div>
+                    <div class="visual-label">Action & Execution</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="document-processing">
+            <div class="content-grid reverse">
+                <div class="text-block" data-aos="fade-left">
+                    <h2>Smart Document & <span>Data Extraction</span></h2>
+                    <p>Manual data entry is a massive operational drag. Our advanced optical character recognition (OCR) and vision models instantly extract, categorize, and digitize complex unstructured data from physical and digital documents.</p>
+                    <p>Whether processing thousands of vendor invoices, auditing complex legal contracts for specific clauses, or extracting key financial metrics from non-standard tax forms, VK Cortex automates data flow directly into your ledger.</p>
+                    <ul>
+                        <li><strong>Automated Accounts Payable:</strong> Extract invoice line items and route them for immediate approval.</li>
+                        <li><strong>Contract Auditing:</strong> Instantly flag non-compliant terms or missing signatures in massive legal document batches.</li>
+                        <li><strong>Unstructured Data Mapping:</strong> Convert messy text inputs into clean, queryable SQL databases.</li>
+                    </ul>
+                </div>
+                <div class="visual-block" data-aos="fade-right">
+                    <div class="visual-stat">04</div>
+                    <div class="visual-label">Data Digitization</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="faq-container">
+                <div class="faq-header" data-aos="fade-up">
+                    <h2>AI Engineering FAQ</h2>
+                </div>
+                
+                <details data-aos="fade-up" data-aos-delay="100">
+                    <summary>Is our data used to train public AI models?</summary>
+                    <div class="faq-content">
+                        Absolutely not. When we deploy VK Cortex, we utilize private enterprise endpoints. Your data, prompts, and outputs are strictly walled off and are never utilized by OpenAI, Anthropic, or Google to train their foundational public models. Your intellectual property remains securely yours.
+                    </div>
+                </details>
+
+                <details data-aos="fade-up" data-aos-delay="200">
+                    <summary>What is RAG (Retrieval-Augmented Generation)?</summary>
+                    <div class="faq-content">
+                        RAG is the gold standard for enterprise AI. Instead of asking an AI to "guess" an answer based on its general training, RAG architecture searches your private company documents first, retrieves the exact relevant paragraphs, and forces the AI to construct its answer based purely on those internal facts. It practically eliminates "hallucinations" and ensures absolute accuracy.
+                    </div>
+                </details>
+
+                <details data-aos="fade-up" data-aos-delay="300">
+                    <summary>Do we need our own software engineers to use this?</summary>
+                    <div class="faq-content">
+                        No. V&K Partners acts as your dedicated AI engineering team. We architect the infrastructure, build the integrations into your existing CRM or databases, and deliver a polished, user-friendly interface that your non-technical staff can use immediately. 
+                    </div>
+                </details>
+
+            </div>
+        </section>
+
+        <section class="cta-strip">
+            <h2>Ready to Deploy Private AI?</h2>
+            <a href="vkscale.html" class="cta-btn">Initialize Infrastructure Audit</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-note">[ Master Footer Goes Here ]</div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+    </script>
+</body>
+</html>

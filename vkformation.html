@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Enterprise Business Formation & Asset Protection | VK Launch</title>
+    <meta name="description" content="V&K Partners engineers enterprise-grade legal architecture. Deploy Delaware C-Corps, offshore holding companies, asset protection shields, and turnkey registered agent services.">
+    <meta name="keywords" content="enterprise business formation, Delaware C-Corp incorporation, offshore entity formation, holding companies, asset protection, registered agent services, startup legal infrastructure, IRS EIN registration, corporate bylaws, operating agreements">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:ital,wght@0,500;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-pure-black: #000000;
+            --surface-dark: #0a0a0a;
+            --surface-light: #111111;
+            --border-color: #1f1f1f;
+            --vk-gold: #C5A059; 
+            --vk-gold-dim: #8b7325;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; }
+
+        body {
+            background-color: var(--bg-pure-black);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAVIGATION BAR */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.2rem 4%; background-color: var(--bg-pure-black);
+            border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100;
+        }
+        .header-left { display: flex; align-items: center; }
+        .brand-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo-icon { height: 58px; width: auto; object-fit: contain; filter: brightness(1.2); }
+        .brand-text { font-family: var(--font-heading); font-size: 1.3rem; letter-spacing: 3px; color: var(--text-main); font-weight: 600; text-transform: uppercase; }
+        .header-right { display: flex; align-items: center; gap: 28px; }
+        
+        .nav-link {
+            display: flex; flex-direction: column; align-items: center; font-family: var(--font-body);
+            font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--text-main); text-decoration: none; transition: color 0.3s ease; line-height: 1.2; font-weight: 600;
+        }
+        .nav-sub { font-size: 0.65rem; color: var(--vk-gold-dim); letter-spacing: 2px; font-weight: 400; margin-top: 4px; transition: color 0.3s ease; }
+        .nav-link:hover, .nav-link:hover .nav-sub { color: var(--vk-gold); }
+        
+        .nav-button {
+            background-color: transparent; color: var(--vk-gold); border: 1px solid var(--vk-gold);
+            font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase;
+            text-decoration: none; padding: 0.7rem 1.4rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
+        }
+        .nav-button:hover { background-color: rgba(197, 160, 89, 0.1); }
+
+        /* PRODUCT HERO */
+        .product-hero {
+            padding: 8rem 4% 6rem;
+            text-align: center;
+            background: radial-gradient(ellipse at top, rgba(197, 160, 89, 0.05) 0%, transparent 60%);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .hero-label { font-size: 0.75rem; color: var(--vk-gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 600; }
+        .product-hero h1 { font-family: var(--font-heading); font-size: 3.5rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; line-height: 1.1; }
+        .product-hero p { max-width: 800px; margin: 0 auto 3rem; color: var(--text-muted); font-size: 1.2rem; line-height: 1.8; }
+        
+        /* CONTENT ARCHITECTURE */
+        .content-section { padding: 6rem 4%; display: flex; flex-direction: column; align-items: center; }
+        .content-section:nth-child(even) { background-color: var(--surface-dark); }
+        
+        .content-grid {
+            max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+        }
+        .content-grid.reverse { direction: rtl; }
+        .content-grid.reverse > * { direction: ltr; }
+
+        .text-block h2 { font-family: var(--font-heading); font-size: 2rem; color: var(--text-main); margin-bottom: 1.5rem; letter-spacing: 1px; text-transform: uppercase; }
+        .text-block h2 span { color: var(--vk-gold); }
+        .text-block p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; }
+        .text-block ul { list-style: none; margin-top: 2rem; }
+        .text-block ul li { position: relative; padding-left: 1.5rem; margin-bottom: 1rem; color: var(--text-main); font-size: 0.95rem; letter-spacing: 0.5px; }
+        .text-block ul li::before { content: '■'; position: absolute; left: 0; color: var(--vk-gold); font-size: 0.7rem; top: 4px; }
+
+        .visual-block {
+            background-color: var(--surface-light); border: 1px solid var(--border-color);
+            padding: 4rem; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            min-height: 400px; position: relative; overflow: hidden;
+        }
+        .visual-block::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background-color: var(--vk-gold); }
+        .visual-stat { font-family: var(--font-heading); font-size: 4rem; color: var(--vk-gold); line-height: 1; margin-bottom: 1rem; }
+        .visual-label { font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); }
+
+        /* LONG-FORM SEO TEXT BANNER */
+        .seo-banner { max-width: 900px; margin: 0 auto; text-align: left; padding: 6rem 20px; }
+        .seo-banner h3 { font-family: var(--font-heading); font-size: 1.8rem; color: var(--vk-gold); margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
+        .seo-banner p { color: var(--text-main); font-size: 1.1rem; line-height: 1.9; margin-bottom: 2rem; }
+
+        /* FAQ ACCORDION */
+        .faq-section { padding: 6rem 4% 8rem; background-color: var(--surface-dark); border-top: 1px solid var(--border-color); }
+        .faq-container { max-width: 900px; margin: 0 auto; }
+        .faq-header { text-align: center; margin-bottom: 4rem; }
+        .faq-header h2 { font-family: var(--font-heading); font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px; }
+        
+        details { background-color: var(--bg-pure-black); border: 1px solid var(--border-color); margin-bottom: 1rem; transition: all 0.3s ease; }
+        summary { padding: 1.5rem 2rem; font-family: var(--font-body); font-weight: 600; font-size: 1.05rem; cursor: pointer; list-style: none; position: relative; color: var(--text-main); letter-spacing: 0.5px; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; position: absolute; right: 2rem; top: 50%; transform: translateY(-50%); color: var(--vk-gold); font-size: 1.5rem; font-weight: 300; }
+        details[open] summary::after { content: '−'; }
+        details[open] { border-color: var(--vk-gold-dim); }
+        .faq-content { padding: 0 2rem 2rem; color: var(--text-muted); line-height: 1.7; font-size: 0.95rem; }
+
+        /* FLOATING CTA STRIP */
+        .cta-strip {
+            background-color: #050505; border: 1px solid var(--vk-gold);
+            padding: 4rem 4%; text-align: center; max-width: 1000px; margin: 0 auto 6rem auto;
+        }
+        .cta-strip h2 { font-family: var(--font-heading); font-size: 1.8rem; color: var(--text-main); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; font-weight: 700; }
+        .cta-btn {
+            background-color: transparent; color: var(--vk-gold); border: 1px solid var(--vk-gold);
+            padding: 1rem 3rem; text-decoration: none; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; transition: all 0.3s; display: inline-block; cursor: pointer;
+        }
+        .cta-btn:hover { background-color: rgba(197, 160, 89, 0.1); }
+
+        /* MASTER FOOTER STYLES */
+        footer { 
+            padding: 6rem 4% 2rem; 
+            background-color: var(--bg-pure-black); 
+            border-top: 1px solid var(--border-color); 
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+        }
+        .footer-column h4 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-column ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+            line-height: 1.5;
+            display: inline-block;
+        }
+        .footer-column ul li a:hover {
+            color: var(--vk-gold);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid #111;
+        }
+        .footer-brand-name {
+            font-family: var(--font-heading);
+            color: var(--vk-gold);
+            font-size: 1.5rem;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        .footer-tagline {
+            color: var(--text-main);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+        .footer-copyright {
+            color: #555;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+
+        /* RESPONSIVE DESIGN RESTORED */
+        @media (max-width: 1024px) {
+            header { flex-direction: column; gap: 1.5rem; padding: 1.5rem 4%; }
+            .header-right { flex-wrap: wrap; justify-content: center; gap: 20px; }
+            .content-grid { grid-template-columns: 1fr; gap: 4rem; }
+            .content-grid.reverse { direction: ltr; }
+            .product-hero h1 { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .product-hero { padding: 6rem 20px 3rem; }
+            .content-section { padding: 4rem 20px; }
+            .visual-block { min-height: 300px; padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="brand-link">
+                <img src="knight_only.png" alt="V&K Icon" class="nav-logo-icon">
+                <span class="brand-text">V&K Partners</span>
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="index.html" class="nav-link">The Ecosystem <span class="nav-sub">(Overview)</span></a>
+            <a href="vklaunch.html" class="nav-link">Founder HQ <span class="nav-sub">(Launch)</span></a>
+            <a href="vkscale.html" class="nav-link">Enterprise Scale <span class="nav-sub">(Upgrade)</span></a>
+            <a href="vkalliance.html" class="nav-link">Founding 100 <span class="nav-sub">(Equity Access)</span></a>
+            <a href="vkaudit.html" class="nav-button">Deploy Stack</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-hero">
+            <div class="hero-label" data-aos="fade-down">VK Launch // Corporate Formation</div>
+            <h1 data-aos="fade-up" data-aos-delay="100">Architect Your<br>Legal Foundation.</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Standard incorporation is a liability. V&K Partners engineers enterprise-grade legal architecture—deploying structural asset protection, optimized tax registrations, and scalable holding companies designed specifically for venture capital acquisition and global expansion.</p>
+        </section>
+
+        <section class="seo-banner" data-aos="fade-in">
+            <h3>The Anatomy of Enterprise Scale</h3>
+            <p>The operational velocity of any modern enterprise is inextricably tied to the integrity of its legal foundation. A fragmented corporate structure limits capital acquisition, exposes founders to unnecessary operational liabilities, and creates massive friction during global expansion. The V&K Launch module was engineered to solve this.</p>
+            <p>We do not simply file paperwork; we act as structural architects. Whether you require a standard Delaware C-Corporation to rapidly secure Series A funding, or a complex, multi-jurisdictional offshore holding structure designed to permanently shield your core intellectual property, our legal infrastructure is built to scale exponentially without fracturing.</p>
+        </section>
+
+        <section class="content-section" id="incorporation">
+            <div class="content-grid">
+                <div class="text-block" data-aos="fade-right">
+                    <h2>US & Offshore <span>Entity Formation</span></h2>
+                    <p>Selecting the correct jurisdiction and entity type dictates your tax burden, capital readiness, and long-term regulatory obligations. We architect and deploy the optimal corporate vehicle for your specific operational model.</p>
+                    <p>From expedited domestic formations favored by institutional investors, to sovereign offshore entities designed for privacy and regulatory flexibility, we manage the entire incorporation lifecycle end-to-end.</p>
+                    <ul>
+                        <li><strong>Delaware C-Corporations:</strong> The absolute standard for venture-backed startups and pre-IPO scaling.</li>
+                        <li><strong>Wyoming & Nevada LLCs:</strong> Unparalleled privacy and aggressive operational asset protection.</li>
+                        <li><strong>Domestic State Incorporation:</strong> A streamlined, high-velocity deployment for localized operations, engineered to bypass the administrative friction of foreign qualifications while maintaining a rigid corporate veil.</li>
+                        <li><strong>Offshore IBCs & Foundations:</strong> Strategic incorporations in the BVI, Cayman Islands, and Nevis for international agility.</li>
+                    </ul>
+                </div>
+                <div class="visual-block" data-aos="fade-left">
+                    <div class="visual-stat">01</div>
+                    <div class="visual-label">Jurisdictional Deployment</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="holding-companies">
+            <div class="content-grid reverse">
+                <div class="text-block" data-aos="fade-left">
+                    <h2>Holding Companies & <span>Asset Shields</span></h2>
+                    <p>Operating a business and holding its assets within the same entity is a critical structural failure. V&K Partners deploys sophisticated dual-layer corporate architectures to isolate your highest-value assets from operational liabilities.</p>
+                    <p>We establish remote holding companies to vault intellectual property, real estate, and treasury reserves. The operating subsidiary handles public liability, while the holding company maintains absolute control, ensuring a lawsuit against your operations never threatens your core wealth.</p>
+                    <ul>
+                        <li><strong>Intellectual Property Vaulting:</strong> License your IP to your operating arm to maximize deductions and shield assets.</li>
+                        <li><strong>Anonymous Holding Structures:</strong> Ensure founder privacy by utilizing jurisdictionally secure holding layers.</li>
+                        <li><strong>Treasury Isolation:</strong> Protect retained earnings and capital reserves from operational risk.</li>
+                    </ul>
+                </div>
+                <div class="visual-block" data-aos="fade-right">
+                    <div class="visual-stat">02</div>
+                    <div class="visual-label">Structural Protection</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="tax-registration">
+            <div class="content-grid">
+                <div class="text-block" data-aos="fade-right">
+                    <h2>IRS EIN & State <span>Tax Registration</span></h2>
+                    <p>Legal formation is only the first step. To legally process revenue, open institutional bank accounts, and hire a workforce, your entity must be rigidly compliant with federal and state tax agencies.</p>
+                    <p>The V&K infrastructure automatically provisions your Federal Employer Identification Number (EIN) alongside all mandatory state-level tax, sales, and labor registrations. We eliminate the bureaucratic friction that delays go-to-market velocity.</p>
+                    <ul>
+                        <li><strong>Expedited EIN Procurement:</strong> For both US residents and foreign national founders.</li>
+                        <li><strong>State Tax Nexus Registration:</strong> Compliant registration across all operating jurisdictions.</li>
+                        <li><strong>Foreign Qualification:</strong> Legally operate your Delaware or Wyoming entity in your home state.</li>
+                    </ul>
+                </div>
+                <div class="visual-block" data-aos="fade-left">
+                    <div class="visual-stat">03</div>
+                    <div class="visual-label">Federal Compliance</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="agreements">
+            <div class="content-grid reverse" id="registered-agent">
+                <div class="text-block" data-aos="fade-left">
+                    <h2>Governance & <span>Registered Agent</span></h2>
+                    <p>Enterprise resilience requires meticulous internal governance. We draft custom, airtight corporate bylaws, operating agreements, and founder vesting schedules to ensure absolute clarity during capital raises and operational disputes.</p>
+                    <p>Furthermore, V&K acts as your premier Registered Agent across all 50 states and key offshore jurisdictions. We serve as your official legal nexus, filtering out spam, accepting service of process, and maintaining the corporate veil with absolute discretion.</p>
+                    <ul>
+                        <li><strong>Custom Operating Agreements:</strong> Engineered to outline exact capital distributions and dispute resolutions.</li>
+                        <li><strong>Turnkey Registered Agent:</strong> Maintain strict legal compliance and privacy in your state of incorporation.</li>
+                        <li><strong>Annual Report Automation:</strong> We handle required state filings to prevent administrative dissolution.</li>
+                    </ul>
+                </div>
+                <div class="visual-block" data-aos="fade-right">
+                    <div class="visual-stat">04</div>
+                    <div class="visual-label">Corporate Governance</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="faq-container">
+                <div class="faq-header" data-aos="fade-up">
+                    <h2>Formation Architecture FAQ</h2>
+                </div>
+                
+                <details data-aos="fade-up" data-aos-delay="100">
+                    <summary>Why do venture capitalists require a Delaware C-Corporation?</summary>
+                    <div class="faq-content">
+                        Delaware corporate law is the most highly developed and predictable legal system in the United States. Venture capitalists and institutional investors mandate Delaware C-Corporation architecture because it allows for the seamless issuance of diverse equity classes (preferred vs. common stock), protects board members through established fiduciary precedents, and ensures predictable outcomes during mergers and acquisitions.
+                    </div>
+                </details>
+
+                <details data-aos="fade-up" data-aos-delay="200">
+                    <summary>What is a holding company and why do I need one?</summary>
+                    <div class="faq-content">
+                        A holding company is a corporate entity that does not produce goods or services itself; its primary purpose is to own shares of other companies and harbor critical assets. By structuring a holding company above your operating business, you isolate liability. If your operating business is sued, the intellectual property, real estate, and capital reserves held securely in the holding company cannot be liquidated to satisfy the operational debt.
+                    </div>
+                </details>
+
+                <details data-aos="fade-up" data-aos-delay="300">
+                    <summary>Do I need to live in the US to form a US corporate entity?</summary>
+                    <div class="faq-content">
+                        No. V&K Partners regularly deploys US-based corporate infrastructure for foreign national founders. Through our turnkey architecture, we handle the incorporation, act as your mandatory US registered agent, and procure your Federal EIN without requiring a US Social Security Number or physical residency. 
+                    </div>
+                </details>
+
+                <details data-aos="fade-up" data-aos-delay="400">
+                    <summary>What is the difference between a Registered Agent and a Corporate Address?</summary>
+                    <div class="faq-content">
+                        A registered agent is a legally mandated entity appointed to accept service of process (lawsuits) and official state correspondence on behalf of your corporation. A corporate address is simply where you conduct business. If you form a company in a state where you do not have a physical office (such as Delaware or Wyoming), you are legally required to maintain a registered agent within that state. V&K Partners provides this service natively within our infrastructure.
+                    </div>
+                </details>
+
+            </div>
+        </section>
+
+        <section class="cta-strip">
+            <h2>Ready to Deploy Your Legal Architecture?</h2>
+            <a href="vklaunch.html" class="cta-btn">Initialize Founder HQ</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>Business Formation</h4>
+                <ul>
+                    <li><a href="vkformation.html#incorporation">US & Offshore Entity Incorporation</a></li>
+                    <li><a href="vkformation.html#tax-registration">IRS EIN & State Tax Registration</a></li>
+                    <li><a href="vkformation.html#agreements">Corporate Operating Agreements & Bylaws</a></li>
+                    <li><a href="vkformation.html#holding-companies">Holding Companies & Asset Protection Shields</a></li>
+                    <li><a href="vkformation.html#registered-agent">Turnkey Registered Agent Services</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Embedded Payments</h4>
+                <ul>
+                    <li><a href="vkflow.html#processing">Credit, Debit, ACH & Digital Wallet Processing</a></li>
+                    <li><a href="vkflow.html#merchant-accounts">Merchant Accounts & Secure Gateways</a></li>
+                    <li><a href="vkflow.html#custom-checkout">Custom Checkout & Payment Links</a></li>
+                    <li><a href="vkflow.html#fraud-shield">Fraud Shield & Secure Data Vaulting</a></li>
+                    <li><a href="vkflow.html#recurring-billing">B2B Invoicing & Recurring Subscriptions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>IT Managed Services</h4>
+                <ul>
+                    <li><a href="vkshield.html#helpdesk">24/7 Full-Service MSP IT Help Desk Support</a></li>
+                    <li><a href="vkshield.html#device-provisioning">Zero-Touch Employee Device Provisioning</a></li>
+                    <li><a href="vkshield.html#cloud-management">Cloud Architecture & Migrations</a></li>
+                    <li><a href="vkshield.html#cyber-security">Security & Compliance (FINRA, HIPAA, NIST, PCI)</a></li>
+                    <li><a href="vkshield.html#backup-recovery">Automated Disaster Recovery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Workforce & Payroll</h4>
+                <ul>
+                    <li><a href="vkpeople.html#global-hiring">Global Hiring & Entity Compliance</a></li>
+                    <li><a href="vkpeople.html#global-payroll">Multi-Currency Payroll Automation</a></li>
+                    <li><a href="vkpeople.html#health-benefits">Health Insurance & Benefits Management</a></li>
+                    <li><a href="vkpeople.html#contractor-compliance">Contractor Compliance Guard</a></li>
+                    <li><a href="vkpeople.html#tax-filing">Tax Filing & Reporting Automation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Advanced AI & Cloud Engineering</h4>
+                <ul>
+                    <li><a href="vkcortex.html#data-privacy">Private Enterprise Cloud Infrastructure (IaaS)</a></li>
+                    <li><a href="vkcortex.html#internal-ai">Proprietary Knowledge Engines</a></li>
+                    <li><a href="vkcortex.html#workflow-automation">Automated Operational Workflows</a></li>
+                    <li><a href="vkcortex.html#client-support">Autonomous Client Support Agents</a></li>
+                    <li><a href="vkcortex.html#document-processing">Smart Document & Data Extraction</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>VK Alliance (Founding 100)</h4>
+                <ul>
+                    <li><a href="vkalliance.html#deal-flow">Vetted Deal Flow & Enterprise Co-Investments</a></li>
+                    <li><a href="vkalliance.html#operator-network">Private Invite-Only Executive Network</a></li>
+                    <li><a href="vkalliance.html#treasury">Corporate Wealth & Treasury Frameworks</a></li>
+                    <li><a href="vkalliance.html#equity-allocations">Founding 100 Private Equity Allocations</a></li>
+                    <li><a href="vkalliance.html#joint-ventures">Strategic Joint Ventures</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-brand-name">V&K Partners</div>
+            <div class="footer-tagline">HEADQUARTERED IN TAMPA, FL | DEPLOYED GLOBALLY | AUTHORITY. PRECISION. RESILIENCE.</div>
+            <div class="footer-copyright">© 2026 VANDERBILT & KNIGHT PARTNERS LLC. ALL RIGHTS RESERVED.</div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+    </script>
+</body>
+</html>

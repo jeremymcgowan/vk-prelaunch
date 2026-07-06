@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Global Workforce & Multi-Currency Payroll | VK People</title>
+    <meta name="description" content="Architect a borderless enterprise. V&K Partners manages unified global hiring, multi-currency payroll automation, health benefits, and contractor compliance.">
+    <meta name="keywords" content="global employer of record, multi-currency payroll software, international hiring compliance, contractor classification, enterprise HR software, automated tax filing, borderless workforce management">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:ital,wght@0,500;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-pure-black: #000000;
+            --surface-dark: #0a0a0a;
+            --surface-light: #111111;
+            --border-color: #1f1f1f;
+            --vk-gold: #C5A059; 
+            --vk-gold-dim: #8b7325;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; }
+
+        body {
+            background-color: var(--bg-pure-black);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAVIGATION BAR */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.2rem 4%; background-color: var(--bg-pure-black);
+            border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100;
+        }
+        .header-left { display: flex; align-items: center; }
+        .brand-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo-icon { height: 58px; width: auto; object-fit: contain; filter: brightness(1.2); }
+        .brand-text { font-family: var(--font-heading); font-size: 1.3rem; letter-spacing: 3px; color: var(--text-main); font-weight: 600; text-transform: uppercase; }
+        .header-right { display: flex; align-items: center; gap: 28px; }
+        
+        .nav-link {
+            display: flex; flex-direction: column; align-items: center; font-family: var(--font-body);
+            font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--text-main); text-decoration: none; transition: color 0.3s ease; line-height: 1.2; font-weight: 600;
+        }
+        .nav-sub { font-size: 0.65rem; color: var(--vk-gold-dim); letter-spacing: 2px; font-weight: 400; margin-top: 4px; transition: color 0.3s ease; }
+        .nav-link:hover, .nav-link:hover .nav-sub { color: var(--vk-gold); }
+        
+        .nav-button {
+            background-color: transparent; color: var(--vk-gold); border: 1px solid var(--vk-gold);
+            font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase;
+            text-decoration: none; padding: 0.7rem 1.4rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
+        }
+        .nav-button:hover { background-color: rgba(197, 160, 89, 0.1); }
+
+        /* PRODUCT HERO */
+        .product-hero {
+            padding: 8rem 4% 6rem;
+            text-align: center;
+            background: radial-gradient(ellipse at top, rgba(197, 160, 89, 0.05) 0%, transparent 60%);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .hero-label { font-size: 0.75rem; color: var(--vk-gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 600; }
+        .product-hero h1 { font-family: var(--font-heading); font-size: 3.5rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; line-height: 1.1; }
+        .product-hero p { max-width: 800px; margin: 0 auto 3rem; color: var(--text-muted); font-size: 1.2rem; line-height: 1.8; }
+        
+        /* CONTENT ARCHITECTURE */
+        .content-section { padding: 6rem 4%; display: flex; flex-direction: column; align-items: center; }
+        .content-section:nth-child(even) { background-color: var(--surface-dark); }
+        
+        .content-grid {
+            max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+        }
+        .content-grid.reverse { direction: rtl; }
+        .content-grid.reverse > * { direction: ltr; }
+
+        .text-block h2 { font-family: var(--font-heading); font-size: 2rem; color: var(--text-main); margin-bottom: 1.5rem; letter-spacing: 1px; text-transform: uppercase; }
+        .text-block h2 span { color: var(--vk-gold); }
+        .text-block p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; }
+        .text-block ul { list-style: none; margin-top: 2rem; }
+        .text-block ul li { position: relative; padding-left: 1.5rem; margin-bottom: 1rem; color: var(--text-main); font-size: 0.95rem; letter-spacing: 0.5px; }
+        .text-block ul li::before { content: '■'; position: absolute; left: 0; color: var(--vk-gold); font-size: 0.7rem; top: 4px; }
+
+        .visual-block {
+            background-color: var(--surface-light); border: 1px solid var(--border-color);
+            padding: 4rem; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            min-height: 400px; position: relative; overflow: hidden;
+        }
+        .visual-block::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background-color: var(--vk-gold); }
+        .visual-stat { font-family: var(--font-heading); font-size: 4rem; color: var(--vk-gold); line-height: 1; margin-bottom: 1rem; }
+        .visual-label { font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); }
+
+        /* LONG-FORM SEO TEXT BANNER */
+        .seo-banner { max-width: 900px; margin: 0 auto; text-align: left; padding: 6rem 20px; }
+        .seo-banner h3 { font-family: var(--font-heading); font-size: 1.8rem; color: var(--vk-gold); margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
+        .seo-banner p { color: var(--text-main); font-size: 1.1rem; line-height: 1.9; margin-bottom: 2rem; }
+
+        /* FAQ ACCORDION */
+        .faq-section { padding: 6rem 4% 8rem; background-color: var(--surface-dark); border-top: 1px solid var(--border-color); }
+        .faq-container { max-width: 900px; margin: 0 auto; }
+        .faq-header { text-align: center; margin-bottom: 4rem; }
+        .faq-header h2 { font-family: var(--font-heading); font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px; }
+        
+        details { background-color: var(--bg-pure-black); border: 1px solid var(--border-color); margin-bottom: 1rem; transition: all 0.3s ease; }
+        summary { padding: 1.5rem 2rem; font-family: var(--font-body); font-weight: 600; font-size: 1.05rem; cursor: pointer; list-style: none; position: relative; color: var(--text-main); letter-spacing: 0.5px; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; position: absolute; right: 2rem; top: 50%; transform: translateY(-50%); color: var(--vk-gold); font-size: 1.5rem; font-weight: 300; }
+        details[open] summary::after { content: '−'; }
+        details[open] { border-color: var(--vk-gold-dim); }
+        .faq-content { padding: 0 2rem 2rem; color: var(--text-muted); line-height: 1.7; font-size: 0.95rem; }
+
+        /* FLOATING CTA STRIP */
+        .cta-strip {
+            background-color: #050505; border: 1px solid var(--vk-gold);
+            padding: 4rem 4%; text-align: center; max-width: 1000px; margin: 0 auto 6rem auto;
+        }
+        .cta-strip h2 { font-family: var(--font-heading); font-size: 1.8rem; color: var(--text-main); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; font-weight: 700; }
+        .cta-btn {
+            background-color: transparent; color: var(--vk-gold); border: 1px solid var(--vk-gold);
+            padding: 1rem 3rem; text-decoration: none; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; transition: all 0.3s; display: inline-block; cursor: pointer;
+        }
+        .cta-btn:hover { background-color: rgba(197, 160, 89, 0.1); }
+
+        /* MASTER FOOTER STYLES */
+        footer { 
+            padding: 6rem 4% 2rem; 
+            background-color: var(--bg-pure-black); 
+            border-top: 1px solid var(--border-color); 
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+        }
+        .footer-column h4 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-column ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+            line-height: 1.5;
+            display: inline-block;
+        }
+        .footer-column ul li a:hover {
+            color: var(--vk-gold);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid #111;
+        }
+        .footer-brand-name {
+            font-family: var(--font-heading);
+            color: var(--vk-gold);
+            font-size: 1.5rem;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        .footer-tagline {
+            color: var(--text-main);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+        .footer-copyright {
+            color: #555;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+
+        /* RESPONSIVE DESIGN RESTORED */
+        @media (max-width: 1024px) {
+            header { flex-direction: column; gap: 1.5rem; padding: 1.5rem 4%; }
+            .header-right { flex-wrap: wrap; justify-content: center; gap: 20px; }
+            .content-grid { grid-template-columns: 1fr; gap: 4rem; }
+            .content-grid.reverse { direction: ltr; }
+            .product-hero h1 { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .product-hero { padding: 6rem 20px 3rem; }
+            .content-section { padding: 4rem 20px; }
+            .visual-block { min-height: 300px; padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="brand-link">
+                <img src="knight_only.png" alt="V&K Icon" class="nav-logo-icon">
+                <span class="brand-text">V&K Partners</span>
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="index.html" class="nav-link">The Ecosystem <span class="nav-sub">(Overview)</span></a>
+            <a href="vklaunch.html" class="nav-link">Founder HQ <span class="nav-sub">(Launch)</span></a>
+            <a href="vkscale.html" class="nav-link">Enterprise Scale <span class="nav-sub">(Upgrade)</span></a>
+            <a href="vkalliance.html" class="nav-link">Founding 100 <span class="nav-sub">(Equity Access)</span></a>
+            <a href="vkaudit.html" class="nav-button">Deploy Stack</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-hero">
+            <div class="hero-label" data-aos="fade-down">VK People // Global Workforce</div>
+            <h1 data-aos="fade-up" data-aos-delay="100">Architect A<br>Borderless Enterprise.</h1>
+            <p data-aos="fade-up" data-aos-delay="200">The battle for top-tier talent is no longer confined by geography. V&K Partners engineers unified workforce architecture—automating global hiring, multi-currency payroll, and structural compliance so you can scale your team without borders.</p>
+        </section>
+
+        <section class="seo-banner" data-aos="fade-in">
+            <h3>The Scale of Human Capital</h3>
+            <p>Expanding your enterprise into international markets traditionally requires massive operational overhead. Setting up foreign legal entities, deciphering local tax codes, and managing fragmented payroll providers can severely bottleneck your growth velocity. The modern enterprise requires a fundamentally faster infrastructure.</p>
+            <p>VK People operates as your global Employer of Record (EOR) and unified HR software backbone. We abstract away the legal and financial friction of international hiring. Whether you are onboarding a lead engineer in London or a sales executive in Tokyo, our architecture allows you to deploy legally compliant contracts, localized benefits, and automated payroll in days—not months.</p>
+        </section>
+
+        <section class="content-section" id="global-hiring">
+            <div class="content-grid">
+                <div class="text-block" data-aos="fade-right">
+                    <h2>Global Hiring & <span>Entity Compliance</span></h2>
+                    <p>Building a foreign subsidiary can cost upwards of $100,000 and take six months. Utilizing our Employer of Record (EOR) infrastructure, V&K legally employs your international talent on your behalf, while you maintain absolute day-to-day management control.</p>
+                    <p>We generate fully compliant employment contracts tailored to specific local labor laws—covering everything from mandatory severance structures to statutory holiday requirements—ensuring your enterprise is perfectly insulated from foreign legal disputes.</p>
+                    <ul>
+                        <li><strong>Instant Global Reach:</strong> Hire top-tier employees in over 150 countries without establishing a local entity.</li>
+                        <li><strong>Localized Contracts:</strong> Automatically generated, legally binding employment agreements vetted by local counsel.</li>
+                        <li><strong>IP Protection:</strong> Ironclad intellectual property assignment clauses ensuring your enterprise retains all code and creation rights.</li>
+                    </ul>
+                </div>
+                <div class="visual-block" data-aos="fade-left">
+                    <div class="visual-stat">01</div>
+                    <div class="visual-label">Borderless Scale</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="global-payroll">
+            <div class="content-grid reverse">
+                <div class="text-block" data-aos="fade-left">
+                    <h2>Multi-Currency <span>Payroll Automation</span></h2>
+                    <p>Managing payroll across multiple fiat currencies and exchange rates introduces unacceptable error margins to your accounting ledger. VK People consolidates your entire global payroll into a single, automated monthly invoice funded in USD.</p>
+                    <p>We handle the complex treasury operations behind the scenes. Our systems calculate exact foreign exchange rates, distribute capital to your international team in their local currency, and automatically withhold and remit all required federal, state, and local taxes.</p>
+                    <ul>
+                        <li><strong>Single-Invoice Funding:</strong> Fund your entire global team with one wire transfer or ACH pull.</li>
+                        <li><strong>Zero-Friction FX:</strong> Transparent, aggressively negotiated foreign exchange rates with no hidden spread markups.</li>
+                        <li><strong>Expense Management:</strong> Seamlessly reimburse international employee expenses in their native currency.</li>
+                    </ul>
+                </div>
+                <div class="visual-block" data-aos="fade-right">
+                    <div class="visual-stat">02</div>
+                    <div class="visual-label">Capital Distribution</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="health-benefits">
+            <div class="content-grid">
+                <div class="text-block" data-aos="fade-right">
+                    <h2>Global Benefits & <span>Health Management</span></h2>
+                    <p>To attract elite talent, you must offer elite compensation packages. However, navigating the private health insurance markets of foreign countries is nearly impossible for a centralized HR team. V&K solves this instantly.</p>
+                    <p>We provide access to aggregated, high-tier global health, dental, and vision plans. Your employees receive localized, premium coverage that competes directly with Fortune 500 offerings, drastically increasing your talent retention rates.</p>
+                    <ul>
+                        <li><strong>Tiered Health Plans:</strong> Premium, localized health insurance networks available in major tech hubs globally.</li>
+                        <li><strong>Pension & 401(k) Equivalents:</strong> Automated contributions to statutory and private retirement accounts.</li>
+                        <li><strong>Automated PTO Tracking:</strong> Software-driven management of complex international leave policies and sick days.</li>
+                    </ul>
+                </div>
+                <div class="visual-block" data-aos="fade-left">
+                    <div class="visual-stat">03</div>
+                    <div class="visual-label">Talent Retention</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="contractor-compliance">
+            <div class="content-grid reverse" id="tax-filing">
+                <div class="text-block" data-aos="fade-left">
+                    <h2>Contractor Guard & <span>Tax Filing</span></h2>
+                    <p>Misclassifying a full-time employee as an independent contractor is one of the most expensive legal errors a scaling company can make, often resulting in devastating back-tax penalties from the IRS or foreign labor boards.</p>
+                    <p>VK People deploys strict Contractor Compliance Guard protocols. We analyze the working relationship to ensure proper classification, manage all W-8BEN and W-9 documentation, and automatically generate and distribute 1099s at year-end.</p>
+                    <ul>
+                        <li><strong>Misclassification Defense:</strong> Algorithmic audits of working relationships to prevent punitive tax fines.</li>
+                        <li><strong>Automated Tax Forms:</strong> Seamless distribution of 1099s and equivalent international tax documentation.</li>
+                        <li><strong>Instant Payouts:</strong> Pay international contractors in crypto (USDC) or local fiat instantly upon invoice approval.</li>
+                    </ul>
+                </div>
+                <div class="visual-block" data-aos="fade-right">
+                    <div class="visual-stat">04</div>
+                    <div class="visual-label">Regulatory Defense</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="faq-container">
+                <div class="faq-header" data-aos="fade-up">
+                    <h2>Workforce Architecture FAQ</h2>
+                </div>
+                
+                <details data-aos="fade-up" data-aos-delay="100">
+                    <summary>What is an Employer of Record (EOR)?</summary>
+                    <div class="faq-content">
+                        An Employer of Record (EOR) is a third-party organization that becomes the legal employer of your international workforce. V&K Partners handles all payroll, taxes, visa sponsorships, and benefits administration, while you maintain complete control over the employee’s daily tasks, performance reviews, and operational duties. It is the fastest way to expand globally without the massive cost of setting up a foreign corporate entity.
+                    </div>
+                </details>
+
+                <details data-aos="fade-up" data-aos-delay="200">
+                    <summary>Why shouldn't we just hire everyone as an Independent Contractor?</summary>
+                    <div class="faq-content">
+                        Many startups attempt this to save money, but it is highly illegal if the worker is treated like an employee. If a contractor works set hours, uses company-provided equipment, or is integral to your core business, labor boards view them as full-time employees. If audited, your enterprise will be forced to pay years of back-taxes, uncollected benefits, and severe penalties. Utilizing our EOR infrastructure eliminates this risk entirely.
+                    </div>
+                </details>
+
+                <details data-aos="fade-up" data-aos-delay="300">
+                    <summary>How does multi-currency payroll funding actually work?</summary>
+                    <div class="faq-content">
+                        Instead of your finance team executing 40 different wire transfers in 12 different currencies, V&K aggregates your total payroll cost. You receive one single invoice in US Dollars (USD). Once you fund that invoice via ACH or wire, our treasury engine automatically executes the foreign exchange (FX) conversions and distributes the exact correct fiat amount into each employee's local bank account on payday.
+                    </div>
+                </details>
+
+                <details data-aos="fade-up" data-aos-delay="400">
+                    <summary>Who owns the Intellectual Property created by an EOR employee?</summary>
+                    <div class="faq-content">
+                        Your enterprise does. A critical part of our localized employment contracts is an airtight, region-specific Intellectual Property Assignment clause. From the moment the employee signs the contract, all code, designs, and proprietary assets they create are instantly and legally transferred to your core holding company.
+                    </div>
+                </details>
+
+            </div>
+        </section>
+
+        <section class="cta-strip">
+            <h2>Ready to Scale Your Workforce?</h2>
+            <a href="vkscale.html" class="cta-btn">Initialize Infrastructure Audit</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>Business Formation</h4>
+                <ul>
+                    <li><a href="vkformation.html#incorporation">US & Offshore Entity Incorporation</a></li>
+                    <li><a href="vkformation.html#tax-registration">IRS EIN & State Tax Registration</a></li>
+                    <li><a href="vkformation.html#agreements">Corporate Operating Agreements & Bylaws</a></li>
+                    <li><a href="vkformation.html#holding-companies">Holding Companies & Asset Protection Shields</a></li>
+                    <li><a href="vkformation.html#registered-agent">Turnkey Registered Agent Services</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Embedded Payments</h4>
+                <ul>
+                    <li><a href="vkflow.html#processing">Credit, Debit, ACH & Digital Wallet Processing</a></li>
+                    <li><a href="vkflow.html#merchant-accounts">Merchant Accounts & Secure Gateways</a></li>
+                    <li><a href="vkflow.html#custom-checkout">Custom Checkout & Payment Links</a></li>
+                    <li><a href="vkflow.html#fraud-shield">Fraud Shield & Secure Data Vaulting</a></li>
+                    <li><a href="vkflow.html#recurring-billing">B2B Invoicing & Recurring Subscriptions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>IT Managed Services</h4>
+                <ul>
+                    <li><a href="vkshield.html#helpdesk">24/7 Full-Service MSP IT Help Desk Support</a></li>
+                    <li><a href="vkshield.html#device-provisioning">Zero-Touch Employee Device Provisioning</a></li>
+                    <li><a href="vkshield.html#cloud-management">Cloud Architecture & Migrations</a></li>
+                    <li><a href="vkshield.html#cyber-security">Security & Compliance (FINRA, HIPAA, NIST, PCI)</a></li>
+                    <li><a href="vkshield.html#backup-recovery">Automated Disaster Recovery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Workforce & Payroll</h4>
+                <ul>
+                    <li><a href="vkpeople.html#global-hiring">Global Hiring & Entity Compliance</a></li>
+                    <li><a href="vkpeople.html#global-payroll">Multi-Currency Payroll Automation</a></li>
+                    <li><a href="vkpeople.html#health-benefits">Health Insurance & Benefits Management</a></li>
+                    <li><a href="vkpeople.html#contractor-compliance">Contractor Compliance Guard</a></li>
+                    <li><a href="vkpeople.html#tax-filing">Tax Filing & Reporting Automation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Advanced AI & Cloud Engineering</h4>
+                <ul>
+                    <li><a href="vkcortex.html#data-privacy">Private Enterprise Cloud Infrastructure (IaaS)</a></li>
+                    <li><a href="vkcortex.html#internal-ai">Proprietary Knowledge Engines</a></li>
+                    <li><a href="vkcortex.html#workflow-automation">Automated Operational Workflows</a></li>
+                    <li><a href="vkcortex.html#client-support">Autonomous Client Support Agents</a></li>
+                    <li><a href="vkcortex.html#document-processing">Smart Document & Data Extraction</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>VK Alliance (Founding 100)</h4>
+                <ul>
+                    <li><a href="vkalliance.html#deal-flow">Vetted Deal Flow & Enterprise Co-Investments</a></li>
+                    <li><a href="vkalliance.html#operator-network">Private Invite-Only Executive Network</a></li>
+                    <li><a href="vkalliance.html#treasury">Corporate Wealth & Treasury Frameworks</a></li>
+                    <li><a href="vkalliance.html#equity-allocations">Founding 100 Private Equity Allocations</a></li>
+                    <li><a href="vkalliance.html#joint-ventures">Strategic Joint Ventures</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-brand-name">V&K Partners</div>
+            <div class="footer-tagline">HEADQUARTERED IN TAMPA, FL | DEPLOYED GLOBALLY | AUTHORITY. PRECISION. RESILIENCE.</div>
+            <div class="footer-copyright">© 2026 VANDERBILT & KNIGHT PARTNERS LLC. ALL RIGHTS RESERVED.</div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+    </script>
+</body>
+</html>

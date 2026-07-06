@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Embedded Payments & Enterprise Gateways | VK Flow</title>
+    <meta name="description" content="Deploy omnichannel enterprise payment architecture. V&K Partners engineers custom checkouts, B2B invoicing, and high-volume merchant processing gateways.">
+    <meta name="keywords" content="embedded payments, enterprise payment processing, merchant accounts, ACH processing, B2B invoicing software, custom payment gateway, fraud shield, recurring subscriptions, payment APIs">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:ital,wght@0,500;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-pure-black: #000000;
+            --surface-dark: #0a0a0a;
+            --surface-light: #111111;
+            --border-color: #1f1f1f;
+            --vk-gold: #C5A059; 
+            --vk-gold-dim: #8b7325;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; }
+
+        body {
+            background-color: var(--bg-pure-black);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAVIGATION BAR */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.2rem 4%; background-color: var(--bg-pure-black);
+            border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100;
+        }
+        .header-left { display: flex; align-items: center; }
+        .brand-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo-icon { height: 58px; width: auto; object-fit: contain; filter: brightness(1.2); }
+        .brand-text { font-family: var(--font-heading); font-size: 1.3rem; letter-spacing: 3px; color: var(--text-main); font-weight: 600; text-transform: uppercase; }
+        .header-right { display: flex; align-items: center; gap: 28px; }
+        
+        .nav-link {
+            display: flex; flex-direction: column; align-items: center; font-family: var(--font-body);
+            font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--text-main); text-decoration: none; transition: color 0.3s ease; line-height: 1.2; font-weight: 600;
+        }
+        .nav-sub { font-size: 0.65rem; color: var(--vk-gold-dim); letter-spacing: 2px; font-weight: 400; margin-top: 4px; transition: color 0.3s ease; }
+        .nav-link:hover, .nav-link:hover .nav-sub { color: var(--vk-gold); }
+        
+        .nav-button {
+            background-color: transparent; color: var(--vk-gold); border: 1px solid var(--vk-gold);
+            font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase;
+            text-decoration: none; padding: 0.7rem 1.4rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
+        }
+        .nav-button:hover { background-color: rgba(197, 160, 89, 0.1); }
+
+        /* PRODUCT HERO */
+        .product-hero {
+            padding: 8rem 4% 6rem;
+            text-align: center;
+            background: radial-gradient(ellipse at top, rgba(197, 160, 89, 0.05) 0%, transparent 60%);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .hero-label { font-size: 0.75rem; color: var(--vk-gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 600; }
+        .product-hero h1 { font-family: var(--font-heading); font-size: 3.5rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; line-height: 1.1; }
+        .product-hero p { max-width: 800px; margin: 0 auto 3rem; color: var(--text-muted); font-size: 1.2rem; line-height: 1.8; }
+        
+        /* CONTENT ARCHITECTURE */
+        .content-section { padding: 6rem 4%; display: flex; flex-direction: column; align-items: center; }
+        .content-section:nth-child(even) { background-color: var(--surface-dark); }
+        
+        .content-grid {
+            max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+        }
+        .content-grid.reverse { direction: rtl; }
+        .content-grid.reverse > * { direction: ltr; }
+
+        .text-block h2 { font-family: var(--font-heading); font-size: 2rem; color: var(--text-main); margin-bottom: 1.5rem; letter-spacing: 1px; text-transform: uppercase; }
+        .text-block h2 span { color: var(--vk-gold); }
+        .text-block p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; }
+        .text-block ul { list-style: none; margin-top: 2rem; }
+        .text-block ul li { position: relative; padding-left: 1.5rem; margin-bottom: 1rem; color: var(--text-main); font-size: 0.95rem; letter-spacing: 0.5px; }
+        .text-block ul li::before { content: '■'; position: absolute; left: 0; color: var(--vk-gold); font-size: 0.7rem; top: 4px; }
+
+        .visual-block {
+            background-color: var(--surface-light); border: 1px solid var(--border-color);
+            padding: 4rem; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            min-height: 400px; position: relative; overflow: hidden;
+        }
+        .visual-block::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background-color: var(--vk-gold); }
+        .visual-stat { font-family: var(--font-heading); font-size: 4rem; color: var(--vk-gold); line-height: 1; margin-bottom: 1rem; }
+        .visual-label { font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); }
+
+        /* LONG-FORM SEO TEXT BANNER */
+        .seo-banner { max-width: 900px; margin: 0 auto; text-align: left; padding: 6rem 20px; }
+        .seo-banner h3 { font-family: var(--font-heading); font-size: 1.8rem; color: var(--vk-gold); margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
+        .seo-banner p { color: var(--text-main); font-size: 1.1rem; line-height: 1.9; margin-bottom: 2rem; }
+
+        /* FAQ ACCORDION */
+        .faq-section { padding: 6rem 4% 8rem; background-color: var(--surface-dark); border-top: 1px solid var(--border-color); }
+        .faq-container { max-width: 900px; margin: 0 auto; }
+        .faq-header { text-align: center; margin-bottom: 4rem; }
+        .faq-header h2 { font-family: var(--font-heading); font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px; }
+        
+        details { background-color: var(--bg-pure-black); border: 1px solid var(--border-color); margin-bottom: 1rem; transition: all 0.3s ease; }
+        summary { padding: 1.5rem 2rem; font-family: var(--font-body); font-weight: 600; font-size: 1.05rem; cursor: pointer; list-style: none; position: relative; color: var(--text-main); letter-spacing: 0.5px; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; position: absolute; right: 2rem; top: 50%; transform: translateY(-50%); color: var(--vk-gold); font-size: 1.5rem; font-weight: 300; }
+        details[open] summary::after { content: '−'; }
+        details[open] { border-color: var(--vk-gold-dim); }
+        .faq-content { padding: 0 2rem 2rem; color: var(--text-muted); line-height: 1.7; font-size: 0.95rem; }
+
+        /* FLOATING CTA STRIP */
+        .cta-strip {
+            background-color: #050505; border: 1px solid var(--vk-gold);
+            padding: 4rem 4%; text-align: center; max-width: 1000px; margin: 0 auto 6rem auto;
+        }
+        .cta-strip h2 { font-family: var(--font-heading); font-size: 1.8rem; color: var(--text-main); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; font-weight: 700; }
+        .cta-btn {
+            background-color: transparent; color: var(--vk-gold); border: 1px solid var(--vk-gold);
+            padding: 1rem 3rem; text-decoration: none; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; transition: all 0.3s; display: inline-block; cursor: pointer;
+        }
+        .cta-btn:hover { background-color: rgba(197, 160, 89, 0.1); }
+
+        /* MASTER FOOTER STYLES */
+        footer { 
+            padding: 6rem 4% 2rem; 
+            background-color: var(--bg-pure-black); 
+            border-top: 1px solid var(--border-color); 
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+        }
+        .footer-column h4 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-column ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+            line-height: 1.5;
+            display: inline-block;
+        }
+        .footer-column ul li a:hover {
+            color: var(--vk-gold);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid #111;
+        }
+        .footer-brand-name {
+            font-family: var(--font-heading);
+            color: var(--vk-gold);
+            font-size: 1.5rem;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        .footer-tagline {
+            color: var(--text-main);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+        .footer-copyright {
+            color: #555;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+
+        /* RESPONSIVE DESIGN RESTORED */
+        @media (max-width: 1024px) {
+            header { flex-direction: column; gap: 1.5rem; padding: 1.5rem 4%; }
+            .header-right { flex-wrap: wrap; justify-content: center; gap: 20px; }
+            .content-grid { grid-template-columns: 1fr; gap: 4rem; }
+            .content-grid.reverse { direction: ltr; }
+            .product-hero h1 { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .product-hero { padding: 6rem 20px 3rem; }
+            .content-section { padding: 4rem 20px; }
+            .visual-block { min-height: 300px; padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="brand-link">
+                <img src="knight_only.png" alt="V&K Icon" class="nav-logo-icon">
+                <span class="brand-text">V&K Partners</span>
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="index.html" class="nav-link">The Ecosystem <span class="nav-sub">(Overview)</span></a>
+            <a href="vklaunch.html" class="nav-link">Founder HQ <span class="nav-sub">(Launch)</span></a>
+            <a href="vkscale.html" class="nav-link">Enterprise Scale <span class="nav-sub">(Upgrade)</span></a>
+            <a href="vkalliance.html" class="nav-link">Founding 100 <span class="nav-sub">(Equity Access)</span></a>
+            <a href="vkaudit.html" class="nav-button">Deploy Stack</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-hero">
+            <div class="hero-label" data-aos="fade-down">VK Flow // Embedded Payments</div>
+            <h1 data-aos="fade-up" data-aos-delay="100">Process Capital<br>With Absolute Precision.</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Fragmented payment gateways hemorrhage margin. V&K Partners engineers unified, omnichannel payment architectures—processing global revenue, automating B2B invoicing, and mitigating chargeback fraud through a single managed infrastructure.</p>
+        </section>
+
+        <section class="seo-banner" data-aos="fade-in">
+            <h3>The Architecture of Capital Velocity</h3>
+            <p>In the enterprise sector, payment processing is not a commodity; it is a critical operational lever. Relying on out-of-the-box merchant aggregators forces your business to adapt to their structural limitations, resulting in frozen funds, exorbitant processing fees, and disjointed client checkout experiences.</p>
+            <p>VK Flow provides a fundamentally different approach. We deploy embedded payment architecture directly into your existing software and sales workflows. Whether you require physical point-of-sale integration, seamless digital wallets, or complex B2B subscription billing, we engineer the pipelines that ensure your capital settles faster and more securely.</p>
+        </section>
+
+        <section class="content-section" id="processing">
+            <div class="content-grid">
+                <div class="text-block" data-aos="fade-right">
+                    <h2>Omnichannel <span>Payment Gateways</span></h2>
+                    <p>Modern enterprises must capture revenue exactly where their clients operate. VK Flow delivers a unified gateway that harmonizes online, in-app, and physical transactions into a single, aggressively negotiated merchant account.</p>
+                    <p>We eliminate the need to run separate gateways for different business units. By consolidating your processing volume, we drive down your interchange fees while providing your finance team with a single source of truth for all global settlements.</p>
+                    <ul>
+                        <li><strong>Universal Acceptance:</strong> Process all major credit cards, debit rails, and international mobile wallets (Apple Pay, Google Pay).</li>
+                        <li><strong>Low-Friction ACH:</strong> Bypass credit card fees entirely by integrating secure, high-limit bank-to-bank transfers for B2B clients.</li>
+                        <li><strong>Point-of-Sale Hardware:</strong> Provisioning and integration of secure physical terminals for retail and localized operations.</li>
+                    </ul>
+                </div>
+                <div class="visual-block" data-aos="fade-left">
+                    <div class="visual-stat">01</div>
+                    <div class="visual-label">Global Payment Rails</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="custom-checkout">
+            <div class="content-grid reverse">
+                <div class="text-block" data-aos="fade-left">
+                    <h2>Custom Checkouts & <span>Payment Links</span></h2>
+                    <p>A poorly optimized checkout experience is the leading cause of enterprise cart abandonment. V&K architects custom-branded payment flows that embed directly into your native environment, removing third-party redirects and reducing friction.</p>
+                    <p>For sales teams engaged in high-ticket closing, we deploy one-click payment links. Your executives can generate secure, encrypted invoices instantly during a consultation, allowing clients to fund retainers or enterprise contracts seamlessly from their devices.</p>
+                    <ul>
+                        <li><strong>White-Label Integration:</strong> Host payments on your own domain to maintain absolute brand authority.</li>
+                        <li><strong>Dynamic Routing:</strong> Intelligently route transactions to the most cost-effective acquiring bank based on real-time data.</li>
+                        <li><strong>Instant Invoicing:</strong> Generate compliant, itemized digital invoices integrated natively with your CRM.</li>
+                    </ul>
+                </div>
+                <div class="visual-block" data-aos="fade-right">
+                    <div class="visual-stat">02</div>
+                    <div class="visual-label">Frictionless Capture</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="recurring-billing">
+            <div class="content-grid">
+                <div class="text-block" data-aos="fade-right">
+                    <h2>B2B Invoicing & <span>Recurring Subscriptions</span></h2>
+                    <p>Predictable cash flow requires intelligent automation. We build resilient billing engines capable of handling the complexities of enterprise SaaS, recurring retainers, and multi-tiered pricing models without manual intervention.</p>
+                    <p>Our infrastructure automatically handles prorated upgrades, failed payment retries (dunning management), and automated tax calculation, ensuring your revenue recognition is mathematically flawless month over month.</p>
+                    <ul>
+                        <li><strong>Automated Dunning:</strong> Intelligent retry logic to salvage failed payments before they become churn.</li>
+                        <li><strong>Tiered & Metered Billing:</strong> Charge clients based on exact usage, seat counts, or API calls.</li>
+                        <li><strong>Global Tax Compliance:</strong> Automatically calculate and apply localized VAT and sales tax during the billing event.</li>
+                    </ul>
+                </div>
+                <div class="visual-block" data-aos="fade-left">
+                    <div class="visual-stat">03</div>
+                    <div class="visual-label">Automated Revenue</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="fraud-shield">
+            <div class="content-grid reverse" id="merchant-accounts">
+                <div class="text-block" data-aos="fade-left">
+                    <h2>Fraud Shield & <span>Data Vaulting</span></h2>
+                    <p>Every dollar lost to a chargeback costs an enterprise an average of three dollars in operational recovery. VK Flow integrates military-grade machine learning to analyze transaction metadata in milliseconds, blocking fraudulent actors before authorization.</p>
+                    <p>Furthermore, we remove your liability entirely by utilizing secure Network Tokenization. Your servers never touch raw credit card data, ensuring immediate compliance with the strictest PCI-DSS and global data privacy standards.</p>
+                    <ul>
+                        <li><strong>Predictive Risk Scoring:</strong> AI-driven velocity checks and proxy detection to block synthetic fraud.</li>
+                        <li><strong>PCI-DSS Level 1 Vaulting:</strong> Securely tokenize client data for one-click future purchases.</li>
+                        <li><strong>Chargeback Defense:</strong> Automated evidence compilation and representment protocols to win disputes.</li>
+                    </ul>
+                </div>
+                <div class="visual-block" data-aos="fade-right">
+                    <div class="visual-stat">04</div>
+                    <div class="visual-label">Risk Mitigation</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="faq-container">
+                <div class="faq-header" data-aos="fade-up">
+                    <h2>Payment Architecture FAQ</h2>
+                </div>
+                
+                <details data-aos="fade-up" data-aos-delay="100">
+                    <summary>Why use a dedicated Merchant Account over Stripe or Square?</summary>
+                    <div class="faq-content">
+                        Aggregators like Stripe and Square are excellent for early-stage startups, but as your transaction volume scales, they become a liability. Aggregators group your funds with millions of others, leading to aggressive, algorithmic account freezes with no warning. A dedicated Merchant Account, engineered by V&K Partners, provides you with your own unique Merchant Identification Number (MID). This grants you absolute control over your funds, bespoke interchange pricing, and direct access to banking underwriters—eliminating the risk of sudden capital locks.
+                    </div>
+                </details>
+
+                <details data-aos="fade-up" data-aos-delay="200">
+                    <summary>What is ACH Processing and why is it vital for B2B?</summary>
+                    <div class="faq-content">
+                        Automated Clearing House (ACH) processing allows you to pull funds directly from a client's bank account. While credit cards charge an average of 2.9% + $0.30 per transaction (costing you $2,900 on a $100,000 invoice), ACH transactions typically cost a flat fee ranging from $0.50 to a few dollars, regardless of the transaction size. For high-ticket B2B operations, embedding ACH rails is the single fastest way to immediately increase your profit margin.
+                    </div>
+                </details>
+
+                <details data-aos="fade-up" data-aos-delay="300">
+                    <summary>How does V&K handle PCI Compliance?</summary>
+                    <div class="faq-content">
+                        We utilize advanced cloud tokenization and hosted payment fields. When your client enters their credit card data, it bypasses your servers entirely and goes directly to our Level 1 PCI-DSS compliant vault. Your system receives a secure "token" to process future transactions. Because your infrastructure never touches raw cardholder data, your PCI compliance scope is drastically reduced, saving you thousands in annual audit fees.
+                    </div>
+                </details>
+
+                <details data-aos="fade-up" data-aos-delay="400">
+                    <summary>Can VK Flow integrate with our existing CRM and accounting software?</summary>
+                    <div class="faq-content">
+                        Absolutely. The VK Flow architecture is built on robust, RESTful APIs designed for seamless integration. We connect directly into major enterprise resource planning (ERP) systems, CRMs (Salesforce, HubSpot), and accounting ledgers (NetSuite, QuickBooks) to ensure real-time reconciliation and automated ledger updates without manual data entry.
+                    </div>
+                </details>
+
+            </div>
+        </section>
+
+        <section class="cta-strip">
+            <h2>Ready to Optimize Your Payment Rails?</h2>
+            <a href="vkscale.html" class="cta-btn">Initialize Infrastructure Audit</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>Business Formation</h4>
+                <ul>
+                    <li><a href="vkformation.html#incorporation">US & Offshore Entity Incorporation</a></li>
+                    <li><a href="vkformation.html#tax-registration">IRS EIN & State Tax Registration</a></li>
+                    <li><a href="vkformation.html#agreements">Corporate Operating Agreements & Bylaws</a></li>
+                    <li><a href="vkformation.html#holding-companies">Holding Companies & Asset Protection Shields</a></li>
+                    <li><a href="vkformation.html#registered-agent">Turnkey Registered Agent Services</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Embedded Payments</h4>
+                <ul>
+                    <li><a href="vkflow.html#processing">Credit, Debit, ACH & Digital Wallet Processing</a></li>
+                    <li><a href="vkflow.html#merchant-accounts">Merchant Accounts & Secure Gateways</a></li>
+                    <li><a href="vkflow.html#custom-checkout">Custom Checkout & Payment Links</a></li>
+                    <li><a href="vkflow.html#fraud-shield">Fraud Shield & Secure Data Vaulting</a></li>
+                    <li><a href="vkflow.html#recurring-billing">B2B Invoicing & Recurring Subscriptions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>IT Managed Services</h4>
+                <ul>
+                    <li><a href="vkshield.html#helpdesk">24/7 Full-Service MSP IT Help Desk Support</a></li>
+                    <li><a href="vkshield.html#device-provisioning">Zero-Touch Employee Device Provisioning</a></li>
+                    <li><a href="vkshield.html#cloud-management">Cloud Architecture & Migrations</a></li>
+                    <li><a href="vkshield.html#cyber-security">Security & Compliance (FINRA, HIPAA, NIST, PCI)</a></li>
+                    <li><a href="vkshield.html#backup-recovery">Automated Disaster Recovery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Workforce & Payroll</h4>
+                <ul>
+                    <li><a href="vkpeople.html#global-hiring">Global Hiring & Entity Compliance</a></li>
+                    <li><a href="vkpeople.html#global-payroll">Multi-Currency Payroll Automation</a></li>
+                    <li><a href="vkpeople.html#health-benefits">Health Insurance & Benefits Management</a></li>
+                    <li><a href="vkpeople.html#contractor-compliance">Contractor Compliance Guard</a></li>
+                    <li><a href="vkpeople.html#tax-filing">Tax Filing & Reporting Automation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Advanced AI & Cloud Engineering</h4>
+                <ul>
+                    <li><a href="vkcortex.html#data-privacy">Private Enterprise Cloud Infrastructure (IaaS)</a></li>
+                    <li><a href="vkcortex.html#internal-ai">Proprietary Knowledge Engines</a></li>
+                    <li><a href="vkcortex.html#workflow-automation">Automated Operational Workflows</a></li>
+                    <li><a href="vkcortex.html#client-support">Autonomous Client Support Agents</a></li>
+                    <li><a href="vkcortex.html#document-processing">Smart Document & Data Extraction</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>VK Alliance (Founding 100)</h4>
+                <ul>
+                    <li><a href="vkalliance.html#deal-flow">Vetted Deal Flow & Enterprise Co-Investments</a></li>
+                    <li><a href="vkalliance.html#operator-network">Private Invite-Only Executive Network</a></li>
+                    <li><a href="vkalliance.html#treasury">Corporate Wealth & Treasury Frameworks</a></li>
+                    <li><a href="vkalliance.html#equity-allocations">Founding 100 Private Equity Allocations</a></li>
+                    <li><a href="vkalliance.html#joint-ventures">Strategic Joint Ventures</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-brand-name">V&K Partners</div>
+            <div class="footer-tagline">HEADQUARTERED IN TAMPA, FL | DEPLOYED GLOBALLY | AUTHORITY. PRECISION. RESILIENCE.</div>
+            <div class="footer-copyright">© 2026 VANDERBILT & KNIGHT PARTNERS LLC. ALL RIGHTS RESERVED.</div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+    </script>
+</body>
+</html>

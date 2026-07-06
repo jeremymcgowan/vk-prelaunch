@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Founder HQ | Enterprise Formation & Infrastructure | V&K Partners</title>
+    <meta name="description" content="Deploy your complete enterprise stack. V&K Partners offers unified business formation, global payroll, omnichannel payments, AI engineering, and IT security.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:ital,wght@0,500;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-pure-black: #000000;
+            --surface-dark: #0a0a0a;
+            --border-color: #1f1f1f;
+            --vk-gold: #d4af37;
+            --vk-gold-dim: #8b7325;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; }
+
+        body {
+            background-color: var(--bg-pure-black);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAVIGATION BAR FRAMEWORK */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.2rem 4%; background-color: var(--bg-pure-black);
+            border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100;
+        }
+        .header-left { display: flex; align-items: center; }
+        .brand-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo-icon { height: 58px; width: auto; object-fit: contain; filter: brightness(1.2); }
+        .brand-text { font-family: var(--font-heading); font-size: 1.3rem; letter-spacing: 3px; color: var(--text-main); font-weight: 600; text-transform: uppercase; }
+        .header-right { display: flex; align-items: center; gap: 28px; }
+        
+        .nav-link {
+            display: flex; flex-direction: column; align-items: center; font-family: var(--font-body);
+            font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--text-main); text-decoration: none; transition: color 0.3s ease; line-height: 1.2;
+            font-weight: 600;
+        }
+        .nav-sub {
+            font-size: 0.65rem; color: var(--vk-gold-dim); letter-spacing: 2px;
+            font-weight: 400; margin-top: 4px; transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: var(--vk-gold); }
+        .nav-link:hover .nav-sub { color: var(--vk-gold); }
+        
+        .nav-button {
+            background-color: var(--vk-gold); color: var(--bg-pure-black); font-family: var(--font-body);
+            font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
+            padding: 0.7rem 1.4rem; font-weight: 600; cursor: pointer; transition: opacity 0.3s ease; text-align: center;
+            margin-left: 10px;
+        }
+        .nav-button:hover { opacity: 0.8; }
+
+        /* HQ Hero Section */
+        main {
+            flex: 1; display: flex; flex-direction: column; align-items: center;
+            width: 100%;
+        }
+
+        .hq-hero {
+            text-align: center;
+            padding: 6rem 20px 3rem;
+            max-width: 850px;
+            width: 100%;
+        }
+        .hq-eyebrow {
+            font-size: 0.75rem; color: var(--vk-gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem; font-weight: 600;
+        }
+        .hq-hero h1 {
+            font-family: var(--font-heading); font-size: 2.2rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem;
+        }
+        .hq-hero p {
+            color: var(--text-muted); line-height: 1.7; font-size: 1.05rem;
+        }
+
+        /* The Interactive Matrix */
+        .stack-matrix {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1000px;
+            padding: 0 20px 2rem; 
+        }
+
+        .stack-card {
+            background-color: #050505;
+            border: 2px solid var(--vk-gold); 
+            padding: 2.5rem 2.5rem 4.5rem 2.5rem; 
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            user-select: none;
+        }
+
+        .card-checkbox {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 1.4rem;
+            height: 1.4rem;
+            accent-color: var(--vk-gold);
+            cursor: pointer;
+            pointer-events: none; 
+        }
+
+        .stack-card.active {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+        
+        .stack-card.inactive {
+            border-color: #333333;
+            opacity: 0.92; 
+            background-color: #080808;
+        }
+        
+        .stack-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .status-badge {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 4px 8px;
+            transition: all 0.3s ease;
+        }
+        .active .status-badge { background-color: var(--vk-gold); color: #000; }
+        .inactive .status-badge { background-color: transparent; border: 1px solid #555; color: #999; }
+        .active .status-badge::after { content: "INCLUDED"; }
+        .inactive .status-badge::after { content: "AVAILABLE ADD-ON"; }
+
+        .card-title {
+            font-family: var(--font-heading); font-size: 1.2rem; color: var(--text-main); margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 1px; width: 85%; line-height: 1.3;
+        }
+        .active .card-title { color: var(--vk-gold); }
+        .card-desc { font-size: 0.9rem; color: #999; line-height: 1.6; }
+        
+        .card-note {
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: #d4af37;
+            font-style: italic;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+        .inactive .card-note { display: none; }
+
+        .perk-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto 8rem auto;
+            padding: 2.5rem;
+            background-color: #050505;
+            border: 1px solid var(--vk-gold);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        .perk-title {
+            color: var(--vk-gold);
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+        .perk-desc {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        
+        .perk-container.partial {
+            border-color: #222;
+            background-color: var(--surface-dark);
+        }
+        .perk-container.partial .perk-title { color: var(--text-main); }
+        .perk-container.partial .perk-desc { color: #999; }
+
+        /* FIXED ACTION BAR (Sticky Footer) */
+        .action-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--bg-pure-black);
+            border-top: 1px solid var(--border-color);
+            padding: 1.5rem 20px;
+            z-index: 100;
+        }
+        
+        .action-bar-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .action-summary {
+            font-family: var(--font-heading); font-size: 1.1rem; letter-spacing: 2px; color: var(--text-main); text-transform: uppercase;
+        }
+        .action-summary span { color: var(--vk-gold); font-weight: 700; }
+        
+        .deploy-btn {
+            background-color: var(--vk-gold);
+            color: #000;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 1rem 2rem;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        .deploy-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 1024px) {
+            header { flex-direction: column; gap: 1.5rem; padding: 1.5rem 4%; }
+            .header-right { flex-wrap: wrap; justify-content: center; gap: 20px; }
+        }
+        @media (max-width: 768px) {
+            .stack-matrix { grid-template-columns: 1fr; }
+            .action-bar-inner { flex-direction: column; gap: 15px; text-align: center; }
+            .deploy-btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="brand-link">
+                <img src="knight_only.png" alt="V&K Icon" class="nav-logo-icon">
+                <span class="brand-text">V&K Partners</span>
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="index.html" class="nav-link">The Ecosystem <span class="nav-sub">(Overview)</span></a>
+            <a href="vklaunch.html" class="nav-link">Founder HQ <span class="nav-sub">(Launch)</span></a>
+            <a href="vkscale.html" class="nav-link">Enterprise Scale <span class="nav-sub">(Upgrade)</span></a>
+            <a href="vkalliance.html" class="nav-link">Founding 100 <span class="nav-sub">(Equity Access)</span></a>
+            <a href="vkbriefing.html" class="nav-button" id="nav-consult-btn">Consultation</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="hq-hero">
+            <div class="hq-eyebrow">Founder HQ Architecture</div>
+            <h1>Deploy Your Enterprise Stack</h1>
+            <p>V&K Partners deploys unified architecture. All core modules are enabled by default for maximum scale and structural alignment. Deselect any modules you do not wish to deploy today.</p>
+        </div>
+
+        <div class="stack-matrix" id="stackMatrix">
+            
+            <div class="stack-card active" data-module="Launch">
+                <input type="checkbox" class="card-checkbox" checked>
+                <div class="card-title">VK Launch // Formation</div>
+                <div class="card-desc">Entity formation, registered agent, and asset protection.</div>
+                <div class="card-note">Note: Only bypass this module if your foundational entity is already legally formed or in progress.</div>
+                <div class="status-badge"></div>
+            </div>
+
+            <div class="stack-card active" data-module="Flow">
+                <input type="checkbox" class="card-checkbox" checked>
+                <div class="card-title">VK Flow // Payments</div>
+                <div class="card-desc">Omnichannel payment architecture. Securely process high-volume online, in-person, and ACH transactions with custom checkout flows and automated B2B invoicing.</div>
+                <div class="status-badge"></div>
+            </div>
+
+            <div class="stack-card active" data-module="Shield">
+                <input type="checkbox" class="card-checkbox" checked>
+                <div class="card-title">VK Shield // IT Security</div>
+                <div class="card-desc">Zero-touch device provisioning and management, scalable cloud infrastructure, proactive threat monitoring, and global 24/7 helpdesk support.</div>
+                <div class="status-badge"></div>
+            </div>
+
+            <div class="stack-card active" data-module="People">
+                <input type="checkbox" class="card-checkbox" checked>
+                <div class="card-title">VK People // Workforce</div>
+                <div class="card-desc">Unified global workforce architecture. Manage borderless hiring, multi-currency payroll, automated tax filings, and comprehensive benefits management.</div>
+                <div class="status-badge"></div>
+            </div>
+
+            <div class="stack-card active" data-module="Cortex">
+                <input type="checkbox" class="card-checkbox" checked>
+                <div class="card-title">VK Cortex // AI</div>
+                <div class="card-desc">Proprietary enterprise AI trained on your private data. Deploy autonomous client support agents, predictive revenue modeling, and intelligent workflow automation to exponentially scale output.</div>
+                <div class="status-badge"></div>
+            </div>
+
+            <div class="stack-card active" data-module="Alliance">
+                <input type="checkbox" class="card-checkbox" checked>
+                <div class="card-title">VK Alliance // Partnership</div>
+                <div class="card-desc">Founding 100 equity access and private executive network, unlocking direct capital infusion, strategic joint ventures, and elite business opportunities.</div>
+                <div class="status-badge"></div>
+            </div>
+
+        </div>
+
+        <div class="perk-container" id="perkMessage">
+            <div class="perk-title" id="perkTitle">Full-Stack Enterprise Deployment Activated</div>
+            <div class="perk-desc" id="perkDesc">By provisioning the complete V&K architecture today, your firm qualifies for Priority Executive Onboarding. You will be assigned a dedicated Principal Architect to oversee your unified integration, bypassing the standard queue.</div>
+        </div>
+    </main>
+
+    <div class="action-bar" id="consultation-form">
+        <div class="action-bar-inner">
+            <div class="action-summary">Modules Initialized: <span id="moduleCount">6</span> / 6</div>
+            <button class="deploy-btn" id="deployBtn">Proceed to Briefing</button>
+        </div>
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll('.stack-card');
+        const countDisplay = document.getElementById('moduleCount');
+        const deployBtn = document.getElementById('deployBtn');
+        const perkBox = document.getElementById('perkMessage');
+        const perkTitle = document.getElementById('perkTitle');
+        const perkDesc = document.getElementById('perkDesc');
+
+        let activeModules = new Set(['Launch', 'Flow', 'Shield', 'People', 'Cortex', 'Alliance']);
+
+        function updatePerkMessage() {
+            if (activeModules.size === 6) {
+                perkBox.classList.remove('partial');
+                perkTitle.textContent = "Full-Stack Enterprise Deployment Activated";
+                perkDesc.textContent = "By provisioning the complete V&K architecture today, your firm qualifies for Priority Executive Onboarding. You will be assigned a dedicated Principal Architect to oversee your unified integration, bypassing the standard queue.";
+            } else {
+                perkBox.classList.add('partial');
+                perkTitle.textContent = "Modular Architecture Selected";
+                perkDesc.textContent = "Your selected infrastructure will be provisioned immediately. Unselected modules remain available within your Founder HQ dashboard as seamless, one-click add-ons whenever your operational needs scale.";
+            }
+        }
+
+        cards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (e.target.type === 'checkbox') return;
+                
+                const moduleName = this.getAttribute('data-module');
+                const checkbox = this.querySelector('.card-checkbox');
+                
+                if (this.classList.contains('active')) {
+                    this.classList.remove('active');
+                    this.classList.add('inactive');
+                    checkbox.checked = false;
+                    activeModules.delete(moduleName);
+                } else {
+                    this.classList.remove('inactive');
+                    this.classList.add('active');
+                    checkbox.checked = true;
+                    activeModules.add(moduleName);
+                }
+
+                countDisplay.textContent = activeModules.size;
+                updatePerkMessage();
+            });
+        });
+
+        document.querySelectorAll('.card-checkbox').forEach(box => {
+            box.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.target.closest('.stack-card').click();
+            });
+        });
+
+        deployBtn.addEventListener('click', function() {
+            const selectedArray = Array.from(activeModules);
+            
+            if(selectedArray.length === 0) {
+                alert("Please select at least one module to deploy.");
+                return;
+            }
+            
+            // Route to onboarding flow with URL parameters
+            const queryString = encodeURIComponent(selectedArray.join(","));
+            window.location.href = "vkbriefing.html?modules=" + queryString;
+        });
+    </script>
+</body>
+</html>
