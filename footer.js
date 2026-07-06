@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
 
             <div class="footer-column">
-                <h4>Advanced AI & Cloud Engineering</h4>
+                <h4>AI & Cloud Engineering</h4>
                 <ul>
                     <li><a href="vkcortex.html#data-privacy">Private Enterprise Cloud Infrastructure (IaaS)</a></li>
                     <li><a href="vkcortex.html#internal-ai">Proprietary Knowledge Engines</a></li>
