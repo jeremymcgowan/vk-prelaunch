@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         <div class="footer-bottom">
             <div class="footer-brand-name">V&K Partners</div>
-            <div class="footer-tagline">HEADQUARTERED IN TAMPA, FL | DEPLOYED GLOBALLY | AUTHORITY. PRECISION. RESILIENCE.</div>
+            <div class="footer-tagline">HEADQUARTERED IN WEST PALM BEACH, FL | DEPLOYED GLOBALLY | AUTHORITY. PRECISION. RESILIENCE.</div>
             <div class="footer-copyright">© 2026 VANDERBILT & KNIGHT PARTNERS INC. ALL RIGHTS RESERVED.</div>
         </div>
     </footer>
